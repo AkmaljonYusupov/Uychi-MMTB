@@ -1,0 +1,1046 @@
+// ============================================
+// CHIROYLI O'ZBEK NAVBAR (z-index tuzatilgan)
+// Premium, elegant, detailed
+// ============================================
+
+// ===== RANGLAR =====
+$navy: #1A3C5E;
+$navy-light: #2A4C6E;
+$navy-dark: #0A2C4E;
+$gold: #D4A843;
+$gold-light: #E8D5A3;
+$gold-dark: #B8922E;
+$gold-glow: rgba(212, 168, 67, 0.15);
+$cream: #FDF8F0;
+$cream-dark: #F5EDE0;
+$white: #FFFFFF;
+$black: #1A1A1A;
+$gray-50: #FAFAF8;
+$gray-100: #F5F2ED;
+$gray-200: #E8E3DA;
+$gray-300: #C4BDB2;
+$gray-400: #8A847A;
+$gray-500: #5A554C;
+$gray-600: #3A3630;
+
+$font-uz: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Arial', sans-serif;
+$font-serif: 'Georgia', 'Times New Roman', 'Palatino', serif;
+
+$ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$duration: 500ms;
+$duration-fast: 300ms;
+
+// ============================================
+// Z-INDEX LAYERLARI (MUHIM!)
+// ============================================
+// topbar: 101
+// navbar: 100
+// overlay: 999
+// mobile: 1000
+// hamburger: 1001 (navbar ichida z-index: 2)
+
+// ============================================
+// TOP BAR
+// ============================================
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101; // Topbar ustunlik
+  background: linear-gradient(135deg, $navy-dark 0%, $navy 50%, $navy-light 100%);
+  color: $gold-light;
+  font-family: $font-uz;
+  font-size: 0.75rem;
+  transition: all $duration $ease-smooth;
+  border-bottom: 1px solid rgba($gold, 0.15);
+  padding: 4px 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      $gold 20%, 
+      $gold-light 50%, 
+      $gold 80%, 
+      transparent 100%
+    );
+    opacity: 0.3;
+  }
+
+  &--hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.85;
+    transition: all $duration-fast $ease-smooth;
+
+    svg {
+      font-size: 0.7rem;
+      color: $gold;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color $duration-fast $ease-smooth;
+
+      &:hover {
+        color: $gold-light;
+      }
+    }
+
+    &--divider {
+      opacity: 0.2;
+      font-weight: 100;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__social {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gold-light;
+    transition: all $duration-fast $ease-spring;
+    text-decoration: none;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    background: rgba($gold, 0.05);
+
+    &:hover {
+      opacity: 1;
+      color: $white;
+      background: rgba($gold, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ============================================
+// MAIN NAVBAR
+// ============================================
+.navbar {
+  position: fixed;
+  top: 32px;
+  left: 0;
+  right: 0;
+  z-index: 100; // Navbar topbardan past
+  font-family: $font-uz;
+  transition: all $duration $ease-smooth;
+  padding: 4px 0;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: rgba($cream, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-radius: 0;
+    transition: all $duration $ease-smooth;
+    border-bottom: 1px solid rgba($gold, 0.08);
+  }
+
+  &--scrolled {
+    top: 0;
+    padding: 0;
+    z-index: 100;
+
+    .navbar__bg {
+      background: rgba($white, 0.92);
+      backdrop-filter: blur(30px) saturate(200%);
+      -webkit-backdrop-filter: blur(30px) saturate(200%);
+      border-bottom: 1px solid rgba($gold, 0.12);
+      box-shadow: 0 4px 40px rgba($navy, 0.06);
+    }
+
+    .navbar__ornament {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+
+    .navbar__glow {
+      opacity: 0;
+    }
+  }
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__ornament {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all $duration $ease-smooth;
+    z-index: 3;
+  }
+
+  &__ornament--line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $gold, transparent);
+    border-radius: 2px;
+  }
+
+  &__ornament--diamond {
+    width: 8px;
+    height: 8px;
+    background: $gold;
+    transform: rotate(45deg);
+    opacity: 0.6;
+    border-radius: 1px;
+  }
+
+  &__glow {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 40px;
+    background: radial-gradient(ellipse, $gold-glow, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.6;
+    transition: all $duration $ease-smooth;
+    pointer-events: none;
+  }
+}
+
+// ============================================
+// LOGO
+// ============================================
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  z-index: 2;
+  position: relative;
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    transition: all $duration $ease-spring;
+    filter: drop-shadow(0 4px 20px rgba($navy, 0.15));
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.small {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &:hover &__icon {
+    transform: rotate(-6deg) scale(1.05);
+    filter: drop-shadow(0 6px 30px rgba($navy, 0.25));
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    position: relative;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $navy;
+    letter-spacing: -0.5px;
+    font-family: $font-serif;
+    background: linear-gradient(135deg, $navy 0%, $navy-light 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+  }
+
+  &__sub {
+    font-size: 1rem;
+    display: inline-block;
+    padding-top: 8px;
+    font-weight: 600;
+    color: $gold-dark;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    margin-top: -2px;
+    font-family: $font-uz;
+  }
+}
+
+// ============================================
+// NAVIGATION
+// ============================================
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba($white, 0.4);
+  padding: 4px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($gold, 0.08);
+  box-shadow: 0 2px 20px rgba($navy, 0.04);
+
+  &__link {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 450;
+    color: $gray-500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all $duration $ease-smooth;
+    position: relative;
+    letter-spacing: 0.2px;
+
+    &-icon {
+      font-size: 0.7rem;
+      color: $gold-dark;
+      opacity: 0.4;
+      transition: all $duration $ease-smooth;
+    }
+
+    &-dot {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 4px;
+      height: 4px;
+      background: $gold;
+      border-radius: 50%;
+      transition: all $duration $ease-spring;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: linear-gradient(135deg, rgba($navy, 0.04), rgba($gold, 0.04));
+      opacity: 0;
+      transition: opacity $duration $ease-smooth;
+    }
+
+    &:hover {
+      color: $navy;
+      transform: translateY(-1px);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .nav__link-icon {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .nav__link-dot {
+        transform: translateX(-50%) scale(0.6);
+      }
+    }
+
+    &--active {
+      color: $navy;
+      font-weight: 500;
+      background: linear-gradient(135deg, rgba($navy, 0.06), rgba($gold, 0.06));
+
+      .nav__link-icon {
+        opacity: 1;
+        color: $gold;
+      }
+
+      .nav__link-dot {
+        transform: translateX(-50%) scale(1);
+        background: $gold;
+        box-shadow: 0 0 20px rgba($gold, 0.3);
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// ============================================
+// ACTIONS
+// ============================================
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: $font-uz;
+  text-decoration: none;
+  transition: all $duration $ease-spring;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+
+  &--primary {
+    background: linear-gradient(135deg, $navy, $gold-dark);
+    color: $white;
+    box-shadow: 0 4px 25px rgba($navy, 0.2);
+
+    svg {
+      font-size: 0.7rem;
+      transition: transform $duration $ease-smooth;
+    }
+
+    &:hover { 
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+// ============================================
+// HAMBURGER - MUHIM z-index
+// ============================================
+.hamburger {
+  display: none;
+  background: rgba($white, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($gold, 0.1);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  z-index: 1001; // Eng yuqori - hamburger har doim ko'rinsin
+  position: relative;
+  transition: all $duration $ease-spring;
+
+  &:hover {
+    background: $white;
+    box-shadow: 0 4px 20px rgba($navy, 0.06);
+    transform: scale(1.05);
+  }
+
+  span {
+    display: block;
+    height: 2px;
+    background: $navy;
+    border-radius: 2px;
+    transition: all $duration $ease-smooth;
+    width: 20px;
+
+    &:nth-child(1) { width: 20px; }
+    &:nth-child(2) { width: 14px; }
+    &:nth-child(3) { width: 10px; }
+  }
+
+  &--open {
+    background: $white;
+    box-shadow: 0 4px 20px rgba($navy, 0.08);
+    z-index: 1001;
+
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(3px, 3px);
+        width: 20px;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+        width: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(3px, -3px);
+        width: 20px;
+      }
+    }
+  }
+}
+
+// ============================================
+// OVERLAY - Menu orqasida
+// ============================================
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($navy, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999; // Mobile menudan past, navbar va topbardan yuqori
+  opacity: 0;
+  pointer-events: none;
+  transition: all $duration $ease-smooth;
+
+  &--active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// ============================================
+// MOBILE MENU - Eng tepada
+// ============================================
+.mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 440px;
+  z-index: 1000; // Overlaydan yuqori, hammadan yuqori (hamburgerdan tashqari)
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.6s $ease-smooth;
+  overflow-y: auto;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, $cream 0%, $cream-dark 100%);
+    border-radius: 0;
+  }
+
+  &--open {
+    transform: translateX(0);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba($gold, 0.1);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__brand-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $navy;
+    font-family: $font-serif;
+    background: linear-gradient(135deg, $navy, $navy-light);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__brand-sub {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: $gold-dark;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: -2px;
+  }
+
+  &__ornament {
+    text-align: center;
+    color: $gold;
+    font-size: 0.6rem;
+    letter-spacing: 8px;
+    opacity: 0.3;
+    margin: 0 0 16px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba($gold, 0.15);
+    background: rgba($white, 0.6);
+    backdrop-filter: blur(10px);
+    color: $navy;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all $duration $ease-spring;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      background: $navy;
+      color: $white;
+      border-color: $navy;
+      transform: rotate(90deg) scale(1.05);
+      box-shadow: 0 4px 20px rgba($navy, 0.2);
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: $gray-500;
+    font-size: 1.05rem;
+    font-weight: 450;
+    transition: all $duration $ease-smooth;
+    border: 1px solid transparent;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLink 0.5s $ease-spring forwards;
+
+    @keyframes slideInLink {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    &-num {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: $gold-dark;
+      width: 28px;
+      text-align: center;
+      opacity: 0.3;
+      transition: all $duration $ease-smooth;
+      font-family: $font-serif;
+    }
+
+    &-icon {
+      font-size: 0.9rem;
+      color: $gold-dark;
+      opacity: 0.4;
+      transition: all $duration $ease-smooth;
+    }
+
+    &-label {
+      flex: 1;
+    }
+
+    &-arrow {
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all $duration $ease-smooth;
+      color: $gold;
+      font-size: 0.8rem;
+
+      svg {
+        display: block;
+      }
+    }
+
+    &:hover {
+      background: rgba($navy, 0.04);
+      color: $navy;
+      transform: translateX(6px);
+      border-color: rgba($gold, 0.08);
+
+      .mobile__link-num {
+        opacity: 1;
+        color: $gold;
+      }
+
+      .mobile__link-icon {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .mobile__link-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    &--active {
+      background: rgba($navy, 0.06);
+      color: $navy;
+      font-weight: 500;
+      border-color: rgba($gold, 0.15);
+      box-shadow: 0 2px 12px rgba($navy, 0.04);
+
+      .mobile__link-num {
+        opacity: 1;
+        color: $gold;
+      }
+
+      .mobile__link-icon {
+        opacity: 1;
+      }
+
+      .mobile__link-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__footer {
+    padding-top: 20px;
+    border-top: 2px solid rgba($gold, 0.08);
+    margin-top: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__divider {
+    text-align: center;
+    color: $gold;
+    font-size: 0.6rem;
+    opacity: 0.2;
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: $gray-400;
+    text-decoration: none;
+    transition: color $duration-fast $ease-smooth;
+
+    svg {
+      color: $gold-dark;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    &:hover {
+      color: $navy;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  &__social {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gray-400;
+    background: rgba($navy, 0.04);
+    transition: all $duration $ease-spring;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: 1px solid rgba($gold, 0.05);
+
+    &:hover {
+      color: $white;
+      background: $navy;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 6px 25px rgba($navy, 0.2);
+      border-color: $navy;
+    }
+  }
+
+  &__copy {
+    text-align: center;
+    font-size: 0.7rem;
+    color: $gray-300;
+    margin: 0;
+    letter-spacing: 0.3px;
+
+    &-dot {
+      margin: 0 6px;
+      color: $gold;
+      opacity: 0.3;
+    }
+  }
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .topbar__info .topbar__item--divider {
+    display: none;
+  }
+
+  .topbar__info span:not(:first-child):not(.topbar__item--divider) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    font-size: 0.65rem;
+    padding: 2px 0;
+  }
+
+  .topbar__inner {
+    padding: 0 16px;
+  }
+
+  .topbar__socials {
+    gap: 4px;
+  }
+
+  .topbar__social {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    top: 24px;
+
+    &--scrolled {
+      top: 0;
+    }
+  }
+
+  .navbar__inner {
+    padding: 0 16px;
+    height: 64px;
+  }
+
+  .navbar__ornament {
+    display: none;
+  }
+
+  .logo {
+    gap: 10px;
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+
+      &.small {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    &__name {
+      font-size: 1.2rem;
+    }
+
+    &__sub {
+       
+      font-size: 0.45rem;
+      letter-spacing: 2.5px;
+    }
+  }
+
+  .hamburger {
+    width: 38px;
+    height: 38px;
+
+    span {
+      width: 18px;
+      height: 1.5px;
+
+      &:nth-child(2) {
+        width: 12px;
+      }
+      &:nth-child(3) {
+        width: 8px;
+      }
+    }
+  }
+
+  .mobile {
+    max-width: 100%;
+    padding: 20px;
+    padding-top: 16px;
+  }
+
+  .mobile__link {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .mobile__socials {
+    gap: 8px;
+  }
+
+  .mobile__social {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .overlay--active {
+    backdrop-filter: blur(4px);
+  }
+}
+
+// ============================================
+// GLOBAL ANIMATIONS
+// ============================================
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: fadeSlideDown 0.7s $ease-smooth;
+}
+
+.topbar {
+  animation: fadeSlideDown 0.7s $ease-smooth 0.1s both;
+}
+
+// ============================================
+// SCROLLBAR STYLING
+// ============================================
+.mobile::-webkit-scrollbar {
+  width: 3px;
+}
+
+.mobile::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile::-webkit-scrollbar-thumb {
+  background: rgba($gold, 0.3);
+  border-radius: 10px;
+}
+
+.mobile::-webkit-scrollbar-thumb:hover {
+  background: rgba($gold, 0.5);
+}
+
+// ============================================
+// REDUCED MOTION
+// ============================================
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

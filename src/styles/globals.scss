@@ -1,0 +1,9 @@
+@use "./reset";
+
+.container {
+  width: min(1280px, 90%);
+  margin: auto;
+}
+body {
+  padding-top: 80px;
+}

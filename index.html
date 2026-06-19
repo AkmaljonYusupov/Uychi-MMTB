@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      (function () {
+        "use strict";
+
+        // Title da teriladigan matn
+        const TARGET = "Uychi tuman MMTB";
+        const chars = TARGET.split("");
+
+        const titleElement = document.querySelector("title");
+        let currentIndex = 0;
+        let intervalId = null;
+        let isPaused = false;
+
+        // Title ni tozalash
+        titleElement.textContent = "";
+
+        // Bir harf qo'shish
+        function addNextChar() {
+          if (currentIndex >= chars.length) {
+            // Matn tugadi, 2 soniyadan keyin qayta boshlaymiz
+            if (intervalId) {
+              clearInterval(intervalId);
+              intervalId = null;
+            }
+            
+            // 2 soniya pauza, keyin qayta boshlash
+            setTimeout(() => {
+              resetAndPlay();
+            }, 2000);
+            
+            return;
+          }
+
+          const currentText = chars.slice(0, currentIndex + 1).join("");
+          titleElement.textContent = currentText;
+          currentIndex++;
+        }
+
+        // Boshlash
+        function startTypingTitle() {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
+
+          currentIndex = 0;
+          titleElement.textContent = "";
+
+          setTimeout(() => {
+            addNextChar();
+
+            intervalId = setInterval(() => {
+              if (currentIndex < chars.length) {
+                addNextChar();
+              } else {
+                if (intervalId) {
+                  clearInterval(intervalId);
+                  intervalId = null;
+                }
+              }
+            }, 250); // 250ms tezlik
+          }, 300);
+        }
+
+        // Qayta boshlash
+        function resetAndPlay() {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
+          startTypingTitle();
+        }
+
+        // Sahifa yuklanganda avtomatik boshlaydi
+        window.addEventListener("load", function () {
+          startTypingTitle();
+        });
+
+        // R tugmasi bilan qayta boshlash (qo'shimcha)
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "r" || e.key === "R") {
+            if (!e.ctrlKey && !e.metaKey) {
+              e.preventDefault();
+              resetAndPlay();
+            }
+          }
+        });
+
+        console.log(
+          '✅ "Uychi tuman MMTB" sarlavhada harfma-harf terilmoqda. Avtomatik qayta boshlanadi.'
+        );
+      })();
+    </script>
+  </body>
+</html>
