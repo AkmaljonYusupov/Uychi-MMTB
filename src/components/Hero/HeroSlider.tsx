@@ -32,8 +32,10 @@ const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [progress, setProgress] = useState(0);
-  const slideInterval = useRef<NodeJS.Timeout | null>(null);
-  const progressInterval = useRef<NodeJS.Timeout | null>(null);
+  
+  // NodeJS.Timeout o'rniga ReturnType<typeof setTimeout> va ReturnType<typeof setInterval>
+  const slideInterval = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progressInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const slides: Slide[] = [
     {

@@ -10,13 +10,14 @@ import {
   FaRegClock,
   FaChevronRight
 } from "react-icons/fa";
-import {  HiOutlineX } from "react-icons/hi";
+import { HiOutlineX } from "react-icons/hi";
 import "./Navbar.scss";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [ setActiveIndex] = useState<number | null>(null);
+  // setActiveIndex o'rniga faqat activeIndex ishlatamiz
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -230,7 +231,7 @@ function Navbar() {
             </a>
             <span className="mobile__info-item">
               <FaMapMarkerAlt />
-               Namangan Viloyati Uychi Tumani maktabgacha va maktab ta'limi boshqarmasi
+              Namangan Viloyati Uychi Tumani maktabgacha va maktab ta'limi boshqarmasi
             </span>
           </div>
           
