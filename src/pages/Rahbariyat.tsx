@@ -4,7 +4,7 @@ import {
   FaEnvelope,
   FaClock,
   FaBuilding,
-  FaUser,
+  // FaUser o'chirildi
 } from "react-icons/fa";
 import "./Rahbariyat.scss";
 

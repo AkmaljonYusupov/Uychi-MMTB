@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import {
-  FaImages,
   FaExpand,
   FaChevronLeft,
   FaChevronRight,
   FaTimes,
-} from 'react-icons/fa';
+} from 'react-icons/fa'; // FaImages o'chirildi
 import './Galereya.scss';
 
 // JSON fayldan ma'lumotlarni import qilish

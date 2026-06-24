@@ -16,7 +16,7 @@ import "./Navbar.scss";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [ setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null); // Bu qator tuzatildi
   const location = useLocation();
 
   useEffect(() => {
