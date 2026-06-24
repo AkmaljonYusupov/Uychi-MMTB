@@ -16,7 +16,7 @@ import "./Navbar.scss";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null); // Bu qator tuzatildi
+  // activeIndex o'chirildi
   const location = useLocation();
 
   useEffect(() => {
@@ -108,15 +108,13 @@ function Navbar() {
 
           {/* Navigation */}
           <nav className="nav">
-            {links.map((link, index) => (
+            {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) => 
                   `nav__link ${isActive ? "nav__link--active" : ""}`
                 }
-                onMouseEnter={() => setActiveIndex(index)}
-                onMouseLeave={() => setActiveIndex(null)}
               >
                 <span className="nav__link-icon">{link.icon}</span>
                 <span className="nav__link-label">{link.label}</span>
