@@ -7,8 +7,6 @@ import {
   FaEye, 
   FaArrowRight,
   FaTag,
-  FaClock,
-  FaShareAlt,
   FaBookOpen,
   FaGraduationCap,
   FaUsers,
