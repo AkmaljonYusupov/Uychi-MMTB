@@ -42,7 +42,7 @@ $duration-fast: 300ms;
 // hamburger: 1001 (navbar ichida z-index: 2)
 
 // ============================================
-// TOP BAR
+// TOP BAR - O'ZGARMADI
 // ============================================
 .topbar {
   position: fixed;
@@ -157,7 +157,7 @@ $duration-fast: 300ms;
 }
 
 // ============================================
-// MAIN NAVBAR
+// MAIN NAVBAR - FAQAT OQ FON
 // ============================================
 .navbar {
   position: fixed;
@@ -172,12 +172,11 @@ $duration-fast: 300ms;
   &__bg {
     position: absolute;
     inset: 0;
-    background: rgba($cream, 0.7);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    background: $white; /* OQ FON */
     border-radius: 0;
     transition: all $duration $ease-smooth;
     border-bottom: 1px solid rgba($gold, 0.08);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
   }
 
   &--scrolled {
@@ -186,11 +185,9 @@ $duration-fast: 300ms;
     z-index: 100;
 
     .navbar__bg {
-      background: rgba($white, 0.92);
-      backdrop-filter: blur(30px) saturate(200%);
-      -webkit-backdrop-filter: blur(30px) saturate(200%);
+      background: $white; /* OQ FON */
       border-bottom: 1px solid rgba($gold, 0.12);
-      box-shadow: 0 4px 40px rgba($navy, 0.06);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
     }
 
     .navbar__ornament {
@@ -437,7 +434,9 @@ $duration-fast: 300ms;
       transition: transform $duration $ease-smooth;
     }
 
-    &:hover { 
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba($navy, 0.3);
 
       svg {
         transform: translateX(4px);
@@ -542,7 +541,7 @@ $duration-fast: 300ms;
   right: 0;
   bottom: 0;
   width: 85%;
-  max-width: 400px; // Maksimal kenglik
+  max-width: 400px;
   z-index: 1000;
   padding: 32px 28px;
   display: flex;
@@ -555,7 +554,7 @@ $duration-fast: 300ms;
   &__bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, $cream 0%, $cream-dark 100%);
+    background: $white; /* OQ FON */
     border-radius: 0;
     border-left: 3px solid rgba($gold, 0.15);
   }
@@ -933,7 +932,6 @@ $duration-fast: 300ms;
     }
   }
 
-  // Mobile off-canvas - to'liq emas, 85% kenglik
   .mobile {
     width: 85%;
     max-width: 350px;
@@ -973,7 +971,6 @@ $duration-fast: 300ms;
   .mobile__brand-name {
     font-size: 1.1rem;
   }
-
 
   .mobile__link {
     padding: 10px 12px;
