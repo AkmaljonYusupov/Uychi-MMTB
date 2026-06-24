@@ -49,7 +49,7 @@ $duration-fast: 300ms;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 101; // Topbar ustunlik
+  z-index: 101;
   background: linear-gradient(135deg, $navy-dark 0%, $navy 50%, $navy-light 100%);
   color: $gold-light;
   font-family: $font-uz;
@@ -164,7 +164,7 @@ $duration-fast: 300ms;
   top: 32px;
   left: 0;
   right: 0;
-  z-index: 100; // Navbar topbardan past
+  z-index: 100;
   font-family: $font-uz;
   transition: all $duration $ease-smooth;
   padding: 4px 0;
@@ -181,7 +181,7 @@ $duration-fast: 300ms;
   }
 
   &--scrolled {
-    top: 0;
+    top: 35px;
     padding: 0;
     z-index: 100;
 
@@ -268,28 +268,6 @@ $duration-fast: 300ms;
   text-decoration: none;
   z-index: 2;
   position: relative;
-
-  &__icon {
-    width: 48px;
-    height: 48px;
-    transition: all $duration $ease-spring;
-    filter: drop-shadow(0 4px 20px rgba($navy, 0.15));
-
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    &.small {
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  &:hover &__icon {
-    transform: rotate(-6deg) scale(1.05);
-    filter: drop-shadow(0 6px 30px rgba($navy, 0.25));
-  }
 
   &__text {
     display: flex;
@@ -489,7 +467,7 @@ $duration-fast: 300ms;
   align-items: center;
   gap: 4px;
   padding: 0;
-  z-index: 1001; // Eng yuqori - hamburger har doim ko'rinsin
+  z-index: 1001;
   position: relative;
   transition: all $duration $ease-spring;
 
@@ -544,7 +522,7 @@ $duration-fast: 300ms;
   background: rgba($navy, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 999; // Mobile menudan past, navbar va topbardan yuqori
+  z-index: 999;
   opacity: 0;
   pointer-events: none;
   transition: all $duration $ease-smooth;
@@ -556,28 +534,30 @@ $duration-fast: 300ms;
 }
 
 // ============================================
-// MOBILE MENU - Eng tepada
+// MOBILE MENU - Off-canvas (to'liq emas)
 // ============================================
 .mobile {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  max-width: 440px;
-  z-index: 1000; // Overlaydan yuqori, hammadan yuqori (hamburgerdan tashqari)
+  width: 85%;
+  max-width: 400px; // Maksimal kenglik
+  z-index: 1000;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
   transition: transform 0.6s $ease-smooth;
   overflow-y: auto;
+  box-shadow: -10px 0 40px rgba($navy, 0.1);
 
   &__bg {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, $cream 0%, $cream-dark 100%);
     border-radius: 0;
+    border-left: 3px solid rgba($gold, 0.15);
   }
 
   &--open {
@@ -910,7 +890,7 @@ $duration-fast: 300ms;
     top: 24px;
 
     &--scrolled {
-      top: 0;
+      top: 28px;
     }
   }
 
@@ -926,23 +906,12 @@ $duration-fast: 300ms;
   .logo {
     gap: 10px;
 
-    &__icon {
-      width: 40px;
-      height: 40px;
-
-      &.small {
-        width: 36px;
-        height: 36px;
-      }
-    }
-
     &__name {
       font-size: 1.2rem;
     }
 
     &__sub {
-       
-      font-size: 0.45rem;
+      font-size: 1rem;
       letter-spacing: 2.5px;
     }
   }
@@ -964,10 +933,13 @@ $duration-fast: 300ms;
     }
   }
 
+  // Mobile off-canvas - to'liq emas, 85% kenglik
   .mobile {
-    max-width: 100%;
+    width: 85%;
+    max-width: 350px;
     padding: 20px;
     padding-top: 16px;
+    box-shadow: -8px 0 30px rgba($navy, 0.15);
   }
 
   .mobile__link {
@@ -987,6 +959,37 @@ $duration-fast: 300ms;
 
   .overlay--active {
     backdrop-filter: blur(4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile {
+    width: 88%;
+    max-width: 320px;
+    padding: 16px;
+    padding-top: 12px;
+  }
+
+  .mobile__brand-name {
+    font-size: 1.1rem;
+  }
+
+
+  .mobile__link {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+
+  .mobile__link-num {
+    width: 20px;
+    font-size: 0.55rem;
+  }
+
+  .mobile__close {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
   }
 }
 

@@ -1,0 +1,913 @@
+// pages/Aloqa.scss
+
+// ============================================================
+// Aloqa sahifasi - Professional oq fon
+// ============================================================
+
+// ═══════════════════ ANIMATSIYALAR ═══════════════════
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+// ═══════════════════ ASOSIY BLOK ═══════════════════
+
+.aloqa {
+  min-height: 100vh;
+  padding: 60px 0 80px;
+  background: #ffffff;
+  position: relative;
+
+  // Kirish animatsiyasi
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // ─── Header ───
+  &__header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s 0.2s both;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+    color: #3b82f6;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    border: 1px solid #dbeafe;
+
+    svg {
+      font-size: 14px;
+    }
+  }
+
+  &__title {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+
+    &-highlight {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  &__subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  // ─── Grid ───
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: start;
+  }
+
+  // ─── Chap tomon - Kontakt ma'lumotlari ───
+  &__info {
+    animation: fadeInLeft 0.8s 0.4s both;
+  }
+
+  &__info-header {
+    margin-bottom: 24px;
+  }
+
+  &__info-title {
+    color: #0f172a;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  &__info-text {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  &__info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #b9d4fc;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.06);
+      transform: translateX(4px);
+      background: #ffffff;
+    }
+  }
+
+  &__info-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__info-content {
+    flex: 1;
+
+    h3 {
+      color: #0f172a;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0 0 3px;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin: 2px 0;
+      line-height: 1.4;
+    }
+  }
+
+  &__info-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #3b82f6;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s ease;
+
+    svg {
+      font-size: 11px;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      color: #2563eb;
+      
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // ─── Tezkor havolalar ───
+  &__quick-links {
+    margin-bottom: 24px;
+
+    h3 {
+      color: #0f172a;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+  }
+
+  &__quick-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  &__quick-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    svg {
+      font-size: 12px;
+      color: #94a3b8;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      background: #3b82f6;
+      color: #ffffff;
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+
+      svg {
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // ─── Ijtimoiy tarmoqlar ───
+  &__social {
+    margin-bottom: 20px;
+
+    h3 {
+      color: #0f172a;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    svg {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    span {
+      font-size: 0.85rem;
+    }
+
+    &:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border-color: currentColor;
+
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // ─── Tashkilot ma'lumoti ───
+  &__organization {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+
+    &-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      color: #3b82f6;
+      font-size: 18px;
+    }
+
+    &-info {
+      flex: 1;
+
+      h4 {
+        color: #0f172a;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 0 0 2px;
+      }
+
+      p {
+        color: #64748b;
+        font-size: 0.85rem;
+        margin: 0;
+      }
+
+      &-detail {
+        color: #94a3b8 !important;
+        font-size: 0.75rem !important;
+        margin-top: 4px !important;
+      }
+    }
+  }
+
+  // ─── O'ng tomon — Forma ───
+  &__form-wrapper {
+    animation: fadeInRight 0.8s 0.6s both;
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+
+  &__form-card {
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  &__form-header {
+    margin-bottom: 28px;
+  }
+
+  &__form-title {
+    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  &__form-text {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  // ─── Forma elementlari ───
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      color: #1e293b;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      svg {
+        font-size: 14px;
+        color: #94a3b8;
+      }
+    }
+  }
+
+  &__required {
+    color: #ef4444;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  &__input-wrapper {
+    position: relative;
+
+    &--focused {
+      .aloqa__input {
+        border-color: #3b82f6;
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.06);
+      }
+    }
+
+    &--error {
+      .aloqa__input {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.06);
+        animation: shake 0.4s ease;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: #0f172a;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+
+    &:hover {
+      border-color: #94a3b8;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__input-error {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    animation: slideDown 0.3s ease;
+
+    svg {
+      font-size: 14px;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+
+    option {
+      color: #0f172a;
+      background: #ffffff;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  // ─── Forma tugmasi ───
+  &__form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  &__form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    svg {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
+
+      svg {
+        transform: translateX(4px) scale(1.1);
+      }
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &__form-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin: 0;
+    justify-content: center;
+
+    svg {
+      font-size: 14px;
+    }
+  }
+
+  // ─── Yuborish animatsiyasi ───
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  // ─── Muvaffaqiyatli xabar ───
+  &__success {
+    text-align: center;
+    padding: 40px 20px;
+    animation: scaleIn 0.5s ease;
+
+    &-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #ffffff;
+      animation: scaleIn 0.6s ease;
+
+      svg {
+        font-size: 32px;
+      }
+    }
+
+    h3 {
+      color: #0f172a;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__success-btn {
+    padding: 10px 24px;
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    }
+  }
+
+  // ─── Xarita ───
+  &__map-wrapper {
+    animation: fadeInUp 0.8s 0.8s both;
+  }
+
+  &__map {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 300px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+
+    iframe {
+      filter: grayscale(0.1);
+    }
+  }
+
+  &__map-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    svg {
+      color: #ef4444;
+      font-size: 18px;
+    }
+  }
+
+  &__map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 4px;
+    transition: all 0.2s ease;
+
+    svg {
+      font-size: 12px;
+      color: #3b82f6;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      color: #2563eb;
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // ═══════════════════ RESPONSIVE ═══════════════════
+
+  @media (max-width: 992px) {
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    &__form-wrapper {
+      position: static;
+    }
+
+    &__form-row {
+      grid-template-columns: 1fr;
+    }
+
+    &__quick-links-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 0 60px;
+
+    &__header {
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+
+    &__form-card {
+      padding: 24px;
+    }
+
+    &__info-card {
+      padding: 14px 16px;
+    }
+
+    &__social-links {
+      gap: 8px;
+    }
+
+    &__social-link {
+      padding: 8px 14px;
+      font-size: 0.85rem;
+
+      span {
+        display: none;
+      }
+    }
+
+    &__quick-links-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__map {
+      height: 220px;
+    }
+
+    &__map-overlay {
+      font-size: 0.8rem;
+      padding: 10px 16px;
+      bottom: 16px;
+      white-space: normal;
+      max-width: 90%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 0 40px;
+
+    &__container {
+      padding: 0 14px;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__badge {
+      font-size: 11px;
+      padding: 6px 14px;
+    }
+
+    &__subtitle {
+      font-size: 0.9rem;
+    }
+
+    &__info-title {
+      font-size: 1.25rem;
+    }
+
+    &__form-card {
+      padding: 18px;
+    }
+
+    &__info-card {
+      padding: 12px 14px;
+      gap: 12px;
+    }
+
+    &__info-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+    }
+
+    &__form-group {
+      input, textarea, select {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+      }
+    }
+
+    &__form-submit {
+      padding: 12px 24px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    &__map {
+      height: 200px;
+    }
+
+    &__map-overlay {
+      font-size: 0.75rem;
+      padding: 8px 14px;
+      gap: 8px;
+    }
+
+    &__social-link {
+      padding: 7px 12px;
+    }
+
+    &__quick-link {
+      padding: 9px 12px;
+      font-size: 0.8rem;
+    }
+  }
+}

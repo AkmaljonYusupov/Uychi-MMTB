@@ -1,0 +1,76 @@
+{
+  "galleryItems": [
+    {
+      "id": 1,
+      "title": "🏫 1-sonli maktab",
+      "description": "Uychi tumani markazida joylashgan zamonaviy maktab. 850 nafar o'quvchi va 45 nafar o'qituvchi faoliyat yuritadi.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "📚 Ochiq dars",
+      "description": "2-sonli maktabda matematika fanidan interaktiv ochiq dars. 35 nafar o'quvchi ishtirok etdi.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 3,
+      "title": "🎓 Bitiruv marosimi",
+      "description": "3-sonli maktab bitiruvchilari. 68 nafar o'quvchi diplom oldi. 5 nafar o'quvchi oltin medal sohibi.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "⚽ Sport zali",
+      "description": "4-sonli maktabning yangi sport zali. Basketbol, voleybol va badminton mashg'ulotlari o'tkaziladi.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "📖 Kutubxona",
+      "description": "5-sonli maktab kutubxonasi. 15 000 dan ortiq kitob fondi va zamonaviy o'qish zali.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 6,
+      "title": "🎉 Navro'z bayrami",
+      "description": "6-sonli maktabda Navro'z bayrami. Milliy liboslar, raqs va qo'shiqlar bilan nishonlandi.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 7,
+      "title": "💻 IT laboratoriya",
+      "description": "7-sonli maktabda zamonaviy IT laboratoriya. 30 kompyuter, interaktiv doska va 3D printer.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 8,
+      "title": "🏗️ Yangi maktab",
+      "description": "8-sonli yangi maktab ochilishi. 800 o'quvchiga mo'ljallangan zamonaviy maktab.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 9,
+      "title": "🏆 Fan olimpiadasi",
+      "description": "Uychi o'quvchilari viloyat fan olimpiadasida. Matematika, fizika, kimyo va ingliz tili.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 10,
+      "title": "🎭 Maktab teatri",
+      "description": "9-sonli maktab o'quvchilari teatr tomoshasi namoyish qilmoqda. 30 nafar o'quvchi ishtirok etdi.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 11,
+      "title": "🌿 Maktab bog'i",
+      "description": "10-sonli maktab hovlisida ekologik bog' tashkil etilgan. O'quvchilar gullar va daraxtlar ekishmoqda.",
+      "image": "/images/gallery/gallery1.jpg"
+    },
+    {
+      "id": 12,
+      "title": "📐 Maktab laboratoriyasi",
+      "description": "10-sonli maktabda fizika va kimyo laboratoriyasi. O'quvchilar amaliy tajribalar o'tkazmoqda.",
+      "image": "/images/gallery/gallery1.jpg"
+    }
+  ]
+}

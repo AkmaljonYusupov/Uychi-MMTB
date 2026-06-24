@@ -1,0 +1,40 @@
+{
+  "leadershipMembers": [
+    {
+      "id": 1,
+      "name": "Nuriddin Karimov",
+      "position": "Uychi tumani maktabgacha va maktab ta'limi bo'limi boshlig'i",
+      "phone": "(+99899) 123-45-67",
+      "email": "uychi_vxtb@xtv.uz",
+      "receptionDay": "Juma",
+      "receptionTime": "9:00 dan 13:00 gacha",
+      "image": "karimovAlisher",
+      "isVacant": false,
+      "order": 1
+    },
+       {
+      "id": 2,
+      "name": "Nuriddin Karimov",
+      "position": "Uychi tumani maktabgacha va maktab ta'limi bo'limi boshlig'i",
+      "phone": "(+99899) 123-45-67",
+      "email": "uychi_vxtb@xtv.uz",
+      "receptionDay": "Juma",
+      "receptionTime": "9:00 dan 13:00 gacha",
+      "image": "karimovAlisher",
+      "isVacant": false,
+      "order": 2
+    },
+        {
+      "id": 3,
+      "name": "Nuriddin Karimov",
+      "position": "Uychi tumani maktabgacha va maktab ta'limi bo'limi boshlig'i",
+      "phone": "(+99899) 123-45-67",
+      "email": "uychi_vxtb@xtv.uz",
+      "receptionDay": "Juma",
+      "receptionTime": "9:00 dan 13:00 gacha",
+      "image": "karimovAlisher",
+      "isVacant": false,
+      "order": 3
+    }
+  ]
+}

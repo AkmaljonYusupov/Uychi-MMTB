@@ -1,3 +1,4 @@
+// HeroSlider.tsx
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { 
@@ -14,7 +15,8 @@ import {
   FaStar,
   FaRegLightbulb,
   FaRocket,
-  FaHeart
+  FaHeart,
+  FaQuoteRight
 } from "react-icons/fa";
 import { FiTarget, FiTrendingUp, FiClock } from "react-icons/fi";
 import "./HeroSlider.scss";
@@ -33,7 +35,6 @@ const HeroSlider = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [progress, setProgress] = useState(0);
   
-  // NodeJS.Timeout o'rniga ReturnType<typeof setTimeout> va ReturnType<typeof setInterval>
   const slideInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const progressInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -108,7 +109,7 @@ const HeroSlider = () => {
       title: "Kelajak strategiyasi",
       tag: "2026-2030 rivojlanish",
       description: "10 ta yangi maktab qurish, 5 ta MTM ochish va pedagog kadrlar malakasini oshirish bo'yicha strategik dastur.",
-      image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1400&q=80",
+      image: "https://xalqtaliminfo.uz/storage/posts/1753951076photo_2025-07-31_13-508.jpg",
       stats: [
         { label: "Yangi maktablar", value: "10", icon: <FaSchool /> },
         { label: "Yangi MTM", value: "5", icon: <FaChild /> },
@@ -162,56 +163,65 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="hero-minimal">
-      <div className="hero-minimal__slides">
+    <section className="hero-slider">
+      <div className="hero-slider__slides">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`hero-minimal__slide ${
-              index === currentSlide ? "hero-minimal__slide--active" : ""
+            className={`hero-slider__slide ${
+              index === currentSlide ? "hero-slider__slide--active" : ""
             }`}
           >
             <div 
-              className="hero-minimal__bg"
+              className="hero-slider__bg"
               style={{ backgroundImage: `url(${slide.image})` }}
             />
 
-            <div className="hero-minimal__content">
-              <div className="hero-minimal__container">
-                <div className="hero-minimal__grid">
-                  <div className="hero-minimal__left">
-                    <span className="hero-minimal__tag">{slide.tag}</span>
+            <div className="hero-slider__content">
+              <div className="hero-slider__container">
+                <div className="hero-slider__grid">
+                  <div className="hero-slider__left">
+                    <div className="hero-slider__tag-wrapper">
+                      <FaQuoteRight className="hero-slider__tag-icon" />
+                      <span className="hero-slider__tag">{slide.tag}</span>
+                    </div>
                     
-                    <h1 className="hero-minimal__title">
+                    <h1 className="hero-slider__title">
                       {slide.title.split(" ").map((word, i) => 
-                        word === "MMTB" || word === "ta'lim" ? (
-                          <span key={i}>{word} </span>
+                        word === "MMTB" ? (
+                          <span key={i} className="hero-slider__highlight">{word} </span>
+                        ) : word === "ta'lim" ? (
+                          <span key={i} className="hero-slider__highlight">{word} </span>
                         ) : (
-                          word + " "
+                          <span key={i}>{word} </span>
                         )
                       )}
                     </h1>
                     
-                    <p className="hero-minimal__desc">{slide.description}</p>
+                    <p className="hero-slider__desc">{slide.description}</p>
                     
-                    <div className="hero-minimal__actions">
-                      <NavLink to="/aloqa" className="hero-minimal__btn hero-minimal__btn--primary">
+                    <div className="hero-slider__actions">
+                      <NavLink to="/aloqa" className="hero-slider__btn hero-slider__btn--primary">
                         <span>Bog'lanish</span>
                         <FaArrowRight />
                       </NavLink>
-                      <NavLink to="/galereya" className="hero-minimal__btn hero-minimal__btn--ghost">
+                      <NavLink to="/galereya" className="hero-slider__btn hero-slider__btn--ghost">
                         <span>Ko'proq</span>
                       </NavLink>
                     </div>
                   </div>
 
-                  <div className="hero-minimal__right">
-                    <div className="hero-minimal__stats">
+                  <div className="hero-slider__right">
+                    <div className="hero-slider__stats">
                       {slide.stats.map((stat, i) => (
-                        <div key={i} className="hero-minimal__stat">
-                          <span className="hero-minimal__stat-icon">{stat.icon}</span>
-                          <span className="hero-minimal__stat-value">{stat.value}</span>
-                          <span className="hero-minimal__stat-label">{stat.label}</span>
+                        <div key={i} className="hero-slider__stat">
+                          <div className="hero-slider__stat-icon">
+                            {stat.icon}
+                          </div>
+                          <div className="hero-slider__stat-info">
+                            <span className="hero-slider__stat-value">{stat.value}</span>
+                            <span className="hero-slider__stat-label">{stat.label}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -223,31 +233,32 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      <div className="hero-minimal__controls">
-        <button className="hero-minimal__arrow" onClick={prevSlide}>
+      <div className="hero-slider__controls">
+        <button className="hero-slider__arrow" onClick={prevSlide} aria-label="Oldingi">
           <FaChevronLeft />
         </button>
 
-        <div className="hero-minimal__dots">
+        <div className="hero-slider__dots">
           {slides.map((_, index) => (
             <button
               key={index}
-              className={`hero-minimal__dot ${
-                index === currentSlide ? "hero-minimal__dot--active" : ""
+              className={`hero-slider__dot ${
+                index === currentSlide ? "hero-slider__dot--active" : ""
               }`}
               onClick={() => goToSlide(index)}
+              aria-label={`Slide ${index + 1}`}
             />
           ))}
         </div>
 
-        <button className="hero-minimal__arrow" onClick={nextSlide}>
+        <button className="hero-slider__arrow" onClick={nextSlide} aria-label="Keyingi">
           <FaChevronRight />
         </button>
       </div>
 
-      <div className="hero-minimal__progress">
+      <div className="hero-slider__progress">
         <div 
-          className="hero-minimal__progress-bar"
+          className="hero-slider__progress-bar"
           style={{ transform: `scaleX(${progress / 100})` }}
         />
       </div>

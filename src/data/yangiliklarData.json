@@ -1,0 +1,136 @@
+{
+  "newsItems": [
+    {
+      "id": 1,
+      "title": "Yangi o'quv yili boshlandi",
+      "excerpt": "2024-2025 o'quv yili uchun maktabimiz to'liq tayyor. Barcha sinf xonalari zamonaviy jihozlar bilan ta'minlandi.",
+      "content": "2024-2025 o'quv yili uchun maktabimizda keng ko'lamli tayyorgarlik ishlari amalga oshirildi. Barcha sinf xonalari zamonaviy kompyuterlar, proyektorlar va interaktiv doskalar bilan jihozlandi. O'quvchilar uchun yangi darsliklar va o'quv qo'llanmalari tayyorlandi. 1500 dan ortiq o'quvchi 1-sinfga qabul qilindi. 25 nafar yosh o'qituvchi ishga qabul qilindi.",
+      "image": "/images/news/news1.jpg",
+      "date": "2024-09-01",
+      "author": "Maktab ma'muriyati",
+      "views": 1250,
+      "tags": ["o'quv yili", "tayyorgarlik", "yangilik"]
+    },
+    {
+      "id": 2,
+      "title": "Olimpiada g'oliblari",
+      "excerpt": "Maktab o'quvchilari xalqaro matematika olimpiadasida 3 ta medal qo'lga kiritdi.",
+      "content": "Singapurda bo'lib o'tgan Xalqaro Matematika Olimpiadasida maktabimiz o'quvchilari ajoyib natijalarni qayd etdilar. 10-sinf o'quvchisi Alisher Karimov oltin medal, 9-sinf o'quvchisi Malika Tursunova kumush medal va 11-sinf o'quvchisi Jasur Raximov bronza medalini qo'lga kiritdi.",
+      "image": "/images/news/news2.jpg",
+      "date": "2024-08-15",
+      "author": "O'quv bo'limi",
+      "views": 2300,
+      "tags": ["olimpiada", "matematika", "yutuq"]
+    },
+    {
+      "id": 3,
+      "title": "Onlayn platforma ishga tushdi",
+      "excerpt": "Ota-onalar endilikda farzandlarining o'zlashtirishini onlayn kuzatishi mumkin.",
+      "content": "Maktabimiz tomonidan ota-onalar uchun maxsus onlayn platforma ishlab chiqildi. Ushbu platforma orqali ota-onalar farzandlarining davomati, baholari, uy vazifalari haqida ma'lumot olishlari mumkin. Tizim to'liq xavfsiz va shaxsiy ma'lumotlar himoyalangan.",
+      "image": "/images/news/news3.jpg",
+      "date": "2024-07-20",
+      "author": "IT bo'limi",
+      "views": 980,
+      "tags": ["onlayn", "platforma", "texnologiya"]
+    },
+    {
+      "id": 4,
+      "title": "Yangi futbol maydoni",
+      "excerpt": "Maktab sport majmuasida zamonaviy futbol maydoni foydalanishga topshirildi.",
+      "content": "Maktabimiz sport majmuasida yangi zamonaviy futbol maydoni qurib bitkazildi. Maydon FIFA standartlariga mos, sun'iy qoplamali, yoritish tizimi va tomoshabinlar uchun tribunalar bilan jihozlangan. Maydon nafaqat maktab o'quvchilari, balki mahalla yoshlari uchun ham ochiq bo'ladi.",
+      "image": "/images/news/news4.jpg",
+      "date": "2024-07-10",
+      "author": "Sport bo'limi",
+      "views": 850,
+      "tags": ["sport", "futbol", "stadion"]
+    },
+    {
+      "id": 5,
+      "title": "Eng yaxshi pedagog tanlovi",
+      "excerpt": "An'anaviy eng yaxshi pedagog tanlovining bu yilgi g'oliblari aniqlandi.",
+      "content": "Maktabimizda an'anaviy eng yaxshi pedagog tanlovining g'oliblari e'lon qilindi. 1-o'rin: Matematika fani o'qituvchisi Karimova Dilnoza, 2-o'rin: Ona tili o'qituvchisi Abdullayeva Nodira, 3-o'rin: Fizika o'qituvchisi Raximov Botir. G'oliblarga pul mukofotlari topshirildi.",
+      "image": "/images/news/news5.jpg",
+      "date": "2024-06-25",
+      "author": "O'quv bo'limi",
+      "views": 670,
+      "tags": ["tanlov", "o'qituvchilar", "pedagog"]
+    },
+    {
+      "id": 6,
+      "title": "Zamonaviy laboratoriya",
+      "excerpt": "Maktabda kimyo, biologiya va fizika fanlari uchun zamonaviy laboratoriya tashkil etildi.",
+      "content": "Maktabimizda kimyo, biologiya va fizika fanlari uchun zamonaviy laboratoriya xonasi tashkil etildi. Laboratoriya eng so'nggi rusumdagi jihozlar, mikroskoplar, reagentlar va tajriba uskunalari bilan ta'minlangan. Laboratoriyada bir vaqtning o'zida 30 nafar o'quvchi tajriba o'tkazishi mumkin.",
+      "image": "/images/news/news6.jpg",
+      "date": "2024-06-15",
+      "author": "Maktab ma'muriyati",
+      "views": 540,
+      "tags": ["laboratoriya", "kimyo", "biologiya"]
+    },
+    {
+      "id": 7,
+      "title": "Navro'z bayrami",
+      "excerpt": "Maktab jamoasi Navro'z bayramini katta tantana bilan nishonladi.",
+      "content": "Maktabimizda Navro'z bayrami munosabati bilan katta bayram tadbiri o'tkazildi. Sumalak va Navro'z taomlari ko'rgazmasi, milliy liboslar namoyishi, xalq o'yinlari, konsert dasturi va hunarmandchilik ko'rgazmasi tashkil etildi. Bayram yakunida eng faol ishtirokchilar taqdirlandi.",
+      "image": "/images/news/news7.jpg",
+      "date": "2024-03-21",
+      "author": "Tadbirlar bo'limi",
+      "views": 890,
+      "tags": ["navro'z", "bayram", "tadbir"]
+    },
+    {
+      "id": 8,
+      "title": "Robototexnika to'garagi",
+      "excerpt": "Maktabda robototexnika to'garagi tashkil etildi va birinchi darslar boshlandi.",
+      "content": "Maktabimizda robototexnika to'garagi ochildi. LEGO Mindstorms EV3 to'plamlari, Arduino mikrokontrollerlari, 3D printer va elektron komponentlar bilan jihozlangan. 7-11 sinf o'quvchilari qabul qilinadi. Eng yaxshi o'quvchilar shahar va respublika musobaqalarida ishtirok etishadi.",
+      "image": "/images/news/news8.jpg",
+      "date": "2024-02-15",
+      "author": "IT bo'limi",
+      "views": 620,
+      "tags": ["robototexnika", "texnologiya", "to'garak"]
+    },
+    {
+      "id": 9,
+      "title": "Maktab kutubxonasi yangilandi",
+      "excerpt": "Kutubxona fondi 5000 dan ortiq yangi kitoblar bilan to'ldirildi.",
+      "content": "Maktab kutubxonasiga 5000 dan ortiq yangi kitoblar keltirildi. Kitoblar orasida badiiy adabiyotlar, ilmiy-ommabop nashrlar, ensiklopediyalar va darsliklar mavjud. Kutubxona endilikda haftaning 6 kuni ochiq.",
+      "image": "/images/news/news9.jpg",
+      "date": "2024-05-10",
+      "author": "Kutubxona mudiri",
+      "views": 430,
+      "tags": ["kutubxona", "kitoblar", "adabiyot"]
+    },
+    {
+      "id": 10,
+      "title": "Bitiruvchilar uchun trening",
+      "excerpt": "11-sinf o'quvchilari uchun kasb tanlash bo'yicha trening o'tkazildi.",
+      "content": "Maktabimizda bitiruvchi sinf o'quvchilari uchun kelajak kasblari mavzusida maxsus trening o'tkazildi. Treningga turli sohalardan mutaxassislar taklif etildi. O'quvchilar o'zlarini qiziqtirgan savollarga javob oldilar.",
+      "image": "/images/news/news10.jpg",
+      "date": "2024-05-20",
+      "author": "Psixologik xizmat",
+      "views": 720,
+      "tags": ["kasb", "trening", "bitiruvchilar"]
+    },
+    {
+      "id": 11,
+      "title": "Maktab oshxonasi yangilandi",
+      "excerpt": "O'quvchilar uchun zamonaviy va qulay oshxona foydalanishga topshirildi.",
+      "content": "Maktab oshxonasi to'liq yangilandi. 200 o'quvchiga mo'ljallangan oshxona zamonaviy jihozlar bilan ta'minlandi. Oziq-ovqat sifati va xilma-xilligi oshirildi.",
+      "image": "/images/news/news11.jpg",
+      "date": "2024-04-10",
+      "author": "Maktab ma'muriyati",
+      "views": 380,
+      "tags": ["oshxona", "ovqat", "qulaylik"]
+    },
+    {
+      "id": 12,
+      "title": "Maktab bog'ida ekologik loyiha",
+      "excerpt": "O'quvchilar maktab hovlisida 100 tadan ortiq daraxt ko'chatlarini ekishdi.",
+      "content": "Maktab o'quvchilari ekologik loyiha doirasida maktab hovlisiga 100 dan ortiq daraxt ko'chatlarini ekishdi. Loyiha o'quvchilarning ekologik madaniyatini oshirish maqsadida tashkil etildi.",
+      "image": "/images/news/news12.jpg",
+      "date": "2024-03-10",
+      "author": "Ekologiya bo'limi",
+      "views": 450,
+      "tags": ["ekologiya", "daraxt", "loyiha"]
+    }
+  ]
+}

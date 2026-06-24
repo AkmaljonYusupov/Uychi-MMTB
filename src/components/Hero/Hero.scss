@@ -1,0 +1,391 @@
+// ============================================================
+// Hero — Ultra kreativ versiya
+// Canvas zarralar, mouse parallax, 3-qatlamli wave
+// ============================================================
+
+// ═══════════════════ ANIMATSIYALAR ═══════════════════
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cloudMove {
+  0%   { transform: translateX(-75px); }
+  50%  { transform: translateX(75px); }
+  100% { transform: translateX(-75px); }
+}
+@keyframes lightDrift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(28px, 36px); }
+}
+@keyframes titleIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes subIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes actIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes statIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes breadcrumbIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ═══════════════════ ASOSIY BLOK ═══════════════════
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  padding: 0;
+
+  // Kirish animatsiyasi
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // ─── Canvas (to'liq fon) ───
+  &__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  // ─── Mouse glow ───
+  &__mouse-glow {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(150,210,255,.14), transparent 70%);
+    pointer-events: none;
+    z-index: 8;
+    transform: translate(-50%, -50%);
+    transition: opacity .3s ease;
+    opacity: 0;
+    will-change: left, top;
+  }
+
+  // ─── CSS yorug'lik qatlamlari ───
+  &__light {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    animation: lightDrift ease-in-out infinite alternate;
+
+    &--1 {
+      width: 520px; height: 520px;
+      left: -200px; top: -200px;
+      background: radial-gradient(circle, rgba(255,255,255,.10), transparent 70%);
+      animation-duration: 9s;
+    }
+
+    &--2 {
+      width: 400px; height: 400px;
+      right: -130px; top: 20px;
+      background: radial-gradient(circle, rgba(160,220,255,.08), transparent 70%);
+      animation-duration: 12s;
+      animation-direction: alternate-reverse;
+    }
+  }
+
+  // ─── Bulutlar ───
+  &__cloud {
+    position: absolute;
+    border-radius: 220px;
+    backdrop-filter: blur(18px);
+    pointer-events: none;
+    z-index: 3;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    &--1 {
+      width: 270px; height: 85px;
+      background: rgba(255,255,255,.09);
+      top: 9%; left: 2%;
+      animation: cloudMove 40s ease-in-out infinite;
+
+      &::before { width: 105px; height: 105px; background: inherit; top: -50px; left: 36px; }
+      &::after  { width:  76px; height:  76px; background: inherit; top: -34px; right: 34px; }
+    }
+
+    &--2 {
+      width: 360px; height: 108px;
+      background: rgba(255,255,255,.07);
+      top: 14%; right: 4%;
+      animation: cloudMove 54s ease-in-out infinite reverse;
+
+      &::before { width: 118px; height: 118px; background: inherit; top: -56px; left: 52px; }
+      &::after  { width:  90px; height:  90px; background: inherit; top: -34px; right: 44px; }
+    }
+
+    &--3 {
+      width: 210px; height: 66px;
+      background: rgba(255,255,255,.06);
+      bottom: 30%; left: 33%;
+      animation: cloudMove 46s ease-in-out infinite;
+
+      &::before { width: 74px; height: 74px; background: inherit; top: -32px; left: 26px; }
+      &::after  { width: 62px; height: 62px; background: inherit; top: -22px; right: 22px; }
+    }
+  }
+
+  // ─── Kontent ───
+  &__inner {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 110px 28px 195px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  // ─── Header (title + subtitle) ───
+  &__header {
+    margin-bottom: 28px;
+    animation: titleIn .7s .3s both;
+
+    .hero__title {
+      font-size: clamp(2.1rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      color: #fff;
+      letter-spacing: -.03em;
+      margin: 0 0 18px;
+      text-shadow: 0 4px 28px rgba(0,0,0,.28);
+    }
+
+    .hero__title-sub {
+      color: rgba(255,255,255,.72);
+      display: inline-block;
+    }
+
+    .hero__subtitle {
+      color: rgba(255,255,255,.82);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: subIn .7s .45s both;
+    }
+  }
+
+  // ─── Breadcrumb ───
+  &__breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: breadcrumbIn .7s .5s both;
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(12px);
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+
+  &__bc-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .02em;
+    transition: color .2s ease, transform .2s ease;
+
+    &:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__bc-icon {
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    transition: color .2s ease;
+  }
+
+  &__bc-link:hover &__bc-icon {
+    color: #fff;
+  }
+
+  &__bc-sep {
+    color: rgba(255,255,255,.25);
+    font-size: 16px;
+    user-select: none;
+  }
+
+  &__bc-cur {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+  }
+
+  // ─── Tugmalar ───
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 11px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+    animation: actIn .7s .6s both;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 13px 27px;
+    border-radius: 999px;
+
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+
+    &--primary {
+      background: #fff;
+      color: #0b3264;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 42px rgba(0,0,0,.22);
+      }
+      &:active { transform: translateY(-1px); }
+    }
+
+    &--secondary {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.22);
+      color: #fff;
+      backdrop-filter: blur(14px);
+
+      &:hover {
+        background: rgba(255,255,255,.19);
+        transform: translateY(-3px);
+      }
+      &:active { transform: translateY(-1px); }
+    }
+  }
+
+  // ─── Statistika ───
+  &__stats {
+    display: flex;
+    justify-content: center;
+    animation: statIn .7s .78s both;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px;
+
+    & + & { border-left: 1px solid rgba(255,255,255,.15); }
+
+    strong {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+
+    span {
+      color: rgba(255,255,255,.65);
+      font-size: 12px;
+      margin-top: 5px;
+      letter-spacing: .04em;
+    }
+  }
+
+  // ─── Wave (3 qatlam) ───
+  &__wave {
+    position: absolute;
+    left: 0; bottom: -1px;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+
+    svg { display: block; width: 100%; height: 200px; }
+  }
+
+  // ═══════════════════ RESPONSIVE ═══════════════════
+
+  @media (max-width: 992px) {
+    &__inner { padding: 100px 24px 175px; }
+    &__header .hero__title { font-size: 2.7rem; }
+    &__stat  { padding: 0 26px; }
+  }
+
+  @media (max-width: 768px) {
+    &__inner { padding: 90px 20px 155px; }
+    
+    &__header {
+      .hero__title { font-size: 2.1rem; letter-spacing: -.025em; }
+      .hero__subtitle { font-size: .96rem; }
+    }
+    
+    &__breadcrumbs {
+      padding: 8px 18px;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    
+    &__actions { flex-direction: column; align-items: center; }
+    &__btn { width: 256px; justify-content: center; }
+    &__cloud { display: none; }
+    &__wave svg { height: 130px; }
+    &__stats { flex-wrap: wrap; gap: 18px; }
+    &__stat { padding: 0 18px; &+& { border-left: none; } }
+  }
+
+  @media (max-width: 480px) {
+    &__inner { padding: 80px 16px 145px; }
+    
+    &__header {
+      .hero__title { font-size: 1.85rem; }
+      .hero__subtitle { font-size: .9rem; }
+    }
+    
+    &__breadcrumbs {
+      padding: 6px 14px;
+      font-size: 11px;
+      gap: 5px;
+    }
+    
+    &__stat strong { font-size: 1.55rem; }
+    &__wave svg { height: 100px; }
+  }
+}

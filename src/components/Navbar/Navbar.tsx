@@ -16,8 +16,7 @@ import "./Navbar.scss";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  // setActiveIndex o'rniga faqat activeIndex ishlatamiz
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [ setActiveIndex] = useState<number | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -101,16 +100,6 @@ function Navbar() {
         <div className="navbar__inner">
           {/* Logo */}
           <NavLink to="/" className="logo" onClick={closeMenu}>
-            <div className="logo__icon">
-              <svg viewBox="0 0 60 60" fill="none">
-                <rect width="60" height="60" rx="14" fill="#1A3C5E" />
-                <rect x="4" y="4" width="52" height="52" rx="10" stroke="#D4A843" strokeWidth="1.5" fill="none" opacity="0.3" />
-                <path d="M16 44L44 16M16 16L44 44" stroke="#D4A843" strokeWidth="3.5" strokeLinecap="round" />
-                <circle cx="30" cy="30" r="9" fill="#D4A843" />
-                <circle cx="30" cy="30" r="4.5" fill="#1A3C5E" />
-                <circle cx="30" cy="30" r="2" fill="#D4A843" opacity="0.5" />
-              </svg>
-            </div>
             <div className="logo__text">
               <span className="logo__name">Uychi tuman</span>
               <span className="logo__sub">MMTB</span>
@@ -174,18 +163,7 @@ function Navbar() {
         
         <div className="mobile__header">
           <div className="mobile__brand">
-            <div className="logo__icon small">
-              <svg viewBox="0 0 60 60" fill="none">
-                <rect width="60" height="60" rx="14" fill="#1A3C5E" />
-                <path d="M16 44L44 16M16 16L44 44" stroke="#D4A843" strokeWidth="3.5" strokeLinecap="round" />
-                <circle cx="30" cy="30" r="9" fill="#D4A843" />
-                <circle cx="30" cy="30" r="4.5" fill="#1A3C5E" />
-              </svg>
-            </div>
-            <div>
-              <div className="mobile__brand-name">UYCHI</div>
-              <div className="mobile__brand-sub">MMTB</div>
-            </div>
+              <div className="mobile__brand-name">UYCHI TUMAN MMTB</div>
           </div>
           <button className="mobile__close" onClick={closeMenu}>
             <HiOutlineX />
