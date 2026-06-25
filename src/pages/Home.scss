@@ -231,7 +231,6 @@
     animation: fadeInUp 0.8s 0.2s both;
   }
 
-  // ─── Slider Header ───
   &__slider-header {
     text-align: center;
     margin-bottom: 40px;
@@ -252,7 +251,6 @@
     border-radius: 2px;
   }
 
-  // ─── Sarlavha uchun (faqat bosh sarlavha) ───
   #id_sy {
     font-size: 3rem;
     font-weight: 800;
@@ -281,7 +279,6 @@
     margin: 20px 0 0;
   }
 
-  // ─── Slider Container ───
   &__slider-container {
     position: relative;
     overflow: hidden;
@@ -295,7 +292,6 @@
     gap: 24px;
   }
 
-  // ─── Slider Card ───
   &__slider-card {
     flex: 0 0 calc(33.333% - 16px);
     background: #ffffff;
@@ -486,7 +482,6 @@
     }
   }
 
-  // ─── Slider Navigation ───
   &__slider-btn-prev,
   &__slider-btn-next {
     position: absolute;
@@ -528,7 +523,6 @@
     right: 4px;
   }
 
-  // ─── Slider Dots ───
   &__slider-dots {
     display: flex;
     justify-content: center;
@@ -559,6 +553,481 @@
     }
   }
 
+  // ─── Rahbariyat Section ───
+  &__leadership {
+    padding: 40px 0 60px;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s 0.3s both;
+  }
+
+  &__leadership-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__leadership-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+
+  &__leadership-title-line {
+    flex: 0 0 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+    border-radius: 2px;
+  }
+
+  &__leadership-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  &__leadership-subtitle {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  &__leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  &__leadership-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px 20px 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+      border-color: #c4b5fd;
+
+      .home__leadership-card-image-overlay {
+        opacity: 1;
+      }
+
+      .home__leadership-card-image img {
+        transform: scale(1.08);
+      }
+
+      .home__leadership-card-badge {
+        background: #8b5cf6;
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__leadership-card-badge {
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #8b5cf6;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  &__leadership-card-image {
+    position: relative;
+    width: 140px;
+    height: 180px;
+    margin: 0 auto 14px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    transition: border-color 0.3s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover {
+      border-color: #8b5cf6;
+    }
+  }
+
+  &__leadership-card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__leadership-card-image-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: none;
+    color: #8b5cf6;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: #8b5cf6;
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+  }
+
+  &__leadership-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__leadership-card-name {
+    margin: 0 0 3px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  &__leadership-card-position {
+    margin: 0 0 12px;
+    font-size: 0.78rem;
+    color: #8b5cf6;
+    font-weight: 500;
+    line-height: 1.4;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__leadership-card-divider {
+    width: 32px;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb, #8b5cf6);
+    border-radius: 2px;
+    margin: 0 auto 12px;
+  }
+
+  &__leadership-card-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  &__leadership-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #f8fafc;
+    }
+  }
+
+  &__leadership-detail-icon-wrapper {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__leadership-detail-icon {
+    color: #8b5cf6;
+    font-size: 12px;
+  }
+
+  &__leadership-detail-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__leadership-detail-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__leadership-detail-value {
+    font-size: 0.72rem;
+    color: #475569;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    a {
+      color: #475569;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #8b5cf6;
+      }
+    }
+
+    strong {
+      color: #0f172a;
+    }
+  }
+
+  &__leadership-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 20px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    svg {
+      transition: transform 0.3s ease;
+      font-size: 11px;
+    }
+
+    &:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+      
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // ─── Hukumat Saytlari Section ───
+  &__government {
+    padding: 40px 0 60px;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s 0.35s both;
+  }
+
+  &__government-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__government-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+
+  &__government-title-line {
+    flex: 0 0 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #2563eb, transparent);
+    border-radius: 2px;
+  }
+
+  &__government-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  &__government-subtitle {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  &__government-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  &__government-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 16px 24px;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    min-height: 180px;
+    text-align: center;
+    cursor: pointer;
+    background: #ffffff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #8b5cf6);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 16px 16px 0 0;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+      border-color: #b9d4fc;
+
+      &::before {
+        opacity: 1;
+      }
+
+      .home__government-card-bg {
+        transform: scale(1.15);
+        opacity: 0.15;
+      }
+
+      .home__government-card-icon {
+        transform: scale(1.15) rotate(-6deg);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      }
+
+      .home__government-card-arrow {
+        opacity: 1;
+        transform: translateX(4px) scale(1.1);
+      }
+
+      .home__government-card-name {
+        color: #0f172a;
+      }
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  &__government-card-bg {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    opacity: 0.08;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+    
+    svg {
+      width: 200px;
+      height: 200px;
+      display: block;
+      filter: blur(2px);
+    }
+  }
+
+  &__government-card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__government-card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__government-card-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 4px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+  }
+
+  &__government-card-description {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  &__government-card-arrow {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    font-size: 13px;
+    opacity: 0.15;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+  }
+
   // ─── Stats Section ───
   &__stats {
     animation: fadeInUp 0.8s 0.4s both;
@@ -570,27 +1039,31 @@
     margin-bottom: 32px;
   }
 
-  &__stats-title {
+  &__stats-title-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0 0 8px;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
 
-    &-line {
-      flex: 0 0 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-      border-radius: 2px;
-    }
+  &__stats-title-line {
+    flex: 0 0 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #10b981, transparent);
+    border-radius: 2px;
+  }
+
+  &__stats-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
   }
 
   &__stats-subtitle {
     color: #94a3b8;
-    font-size: 1rem;
+    font-size: 1.05rem;
     margin: 0;
   }
 
@@ -609,29 +1082,11 @@
     border-radius: 16px;
     border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
 
     &:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
       border-color: #b9d4fc;
-
-      &::before {
-        opacity: 1;
-      }
     }
   }
 
@@ -710,6 +1165,60 @@
 }
 
 // ─── Responsive ───
+@media (max-width: 1024px) {
+  .home {
+    &__leadership-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    &__leadership-card-image {
+      width: 130px;
+      height: 170px;
+    }
+
+    &__leadership-card-name {
+      font-size: 1rem;
+    }
+
+    &__government-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    &__government-card-bg {
+      font-size: 150px;
+      
+      svg {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    &__government-card {
+      min-height: 160px;
+      padding: 24px 14px 20px;
+    }
+
+    &__government-card-icon {
+      width: 56px;
+      height: 56px;
+      font-size: 26px;
+      
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    &__leadership-title-line,
+    &__government-title-line,
+    &__stats-title-line {
+      flex: 0 0 80px;
+    }
+  }
+}
+
 @media (max-width: 992px) {
   .home {
     &__hero {
@@ -886,17 +1395,270 @@
       font-size: 16px;
     }
 
-    &__stats-title {
-      font-size: 1.4rem;
-      gap: 12px;
+    &__leadership-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-      &-line {
-        flex: 0 0 40px;
+    &__leadership-card {
+      padding: 18px 16px 16px;
+      border-radius: 16px;
+    }
+
+    &__leadership-card-image {
+      width: 120px;
+      height: 155px;
+      border-radius: 12px;
+    }
+
+    &__leadership-card-name {
+      font-size: 0.95rem;
+    }
+
+    &__leadership-card-position {
+      font-size: 0.72rem;
+      min-height: 32px;
+    }
+
+    &__leadership-card-badge {
+      width: 30px;
+      height: 30px;
+      font-size: 0.65rem;
+      top: -10px;
+      right: 12px;
+    }
+
+    &__leadership-detail-item {
+      gap: 8px;
+      padding: 3px 6px;
+    }
+
+    &__leadership-detail-icon-wrapper {
+      width: 24px;
+      height: 24px;
+    }
+
+    &__leadership-detail-icon {
+      font-size: 10px;
+    }
+
+    &__leadership-detail-label {
+      font-size: 0.5rem;
+    }
+
+    &__leadership-detail-value {
+      font-size: 0.65rem;
+    }
+
+    &__leadership-card-btn {
+      padding: 5px 16px;
+      font-size: 0.7rem;
+    }
+
+    &__leadership-title {
+      font-size: 1.6rem;
+    }
+
+    &__leadership-title-line,
+    &__government-title-line,
+    &__stats-title-line {
+      flex: 0 0 60px;
+    }
+
+    &__government-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    &__government-card {
+      min-height: 140px;
+      padding: 20px 12px 16px;
+      border-radius: 14px;
+    }
+
+    &__government-card-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 22px;
+      margin-bottom: 10px;
+      
+      svg {
+        width: 22px;
+        height: 22px;
       }
     }
 
+    &__government-card-name {
+      font-size: 0.8rem;
+    }
+
+    &__government-card-description {
+      font-size: 0.62rem;
+    }
+
+    &__government-card-bg {
+      font-size: 110px;
+      
+      svg {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    &__government-card-arrow {
+      font-size: 11px;
+      bottom: 8px;
+      right: 10px;
+    }
+
+    &__government-title {
+      font-size: 1.6rem;
+    }
+
+    &__government-subtitle {
+      font-size: 0.95rem;
+    }
+
+    &__stats-title {
+      font-size: 1.6rem;
+    }
+
     &__stats-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .home {
+    &__leadership-grid {
+      grid-template-columns: 1fr;
+      max-width: 340px;
+      gap: 20px;
+    }
+
+    &__leadership-card {
+      padding: 20px 18px 18px;
+      border-radius: 18px;
+    }
+
+    &__leadership-card-image {
+      width: 140px;
+      height: 175px;
+      border-radius: 14px;
+    }
+
+    &__leadership-card-name {
+      font-size: 1.05rem;
+    }
+
+    &__leadership-card-position {
+      font-size: 0.78rem;
+      min-height: 36px;
+    }
+
+    &__leadership-card-badge {
+      width: 32px;
+      height: 32px;
+      font-size: 0.7rem;
+      top: -11px;
+      right: 14px;
+    }
+
+    &__leadership-detail-item {
+      gap: 10px;
+      padding: 4px 8px;
+    }
+
+    &__leadership-detail-icon-wrapper {
+      width: 28px;
+      height: 28px;
+    }
+
+    &__leadership-detail-icon {
+      font-size: 11px;
+    }
+
+    &__leadership-detail-label {
+      font-size: 0.55rem;
+    }
+
+    &__leadership-detail-value {
+      font-size: 0.7rem;
+    }
+
+    &__leadership-card-btn {
+      padding: 6px 18px;
+      font-size: 0.75rem;
+    }
+
+    &__leadership-title {
+      font-size: 1.4rem;
+    }
+
+    &__government-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    &__government-card {
+      min-height: 120px;
+      padding: 16px 10px 14px;
+      border-radius: 12px;
+    }
+
+    &__government-card-icon {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      margin-bottom: 8px;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__government-card-name {
+      font-size: 0.72rem;
+    }
+
+    &__government-card-description {
+      font-size: 0.55rem;
+    }
+
+    &__government-card-bg {
+      font-size: 80px;
+      
+      svg {
+        width: 80px;
+        height: 80px;
+        filter: blur(1.5px);
+      }
+    }
+
+    &__government-card-arrow {
+      font-size: 10px;
+      bottom: 6px;
+      right: 8px;
+    }
+
+    &__government-title {
+      font-size: 1.4rem;
+    }
+
+    &__government-title-line {
+      flex: 0 0 50px;
+    }
+
+    &__stats-title {
+      font-size: 1.4rem;
+    }
+
+    &__stats-title-line {
+      flex: 0 0 50px;
     }
   }
 }
@@ -985,8 +1747,176 @@
       grid-template-columns: 1fr;
     }
 
+    &__government-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    &__government-card {
+      min-height: 100px;
+      padding: 12px 8px 10px;
+      border-radius: 10px;
+    }
+
+    &__government-card-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      margin-bottom: 6px;
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &__government-card-name {
+      font-size: 0.62rem;
+    }
+
+    &__government-card-description {
+      display: none;
+    }
+
+    &__government-card-bg {
+      font-size: 60px;
+      
+      svg {
+        width: 60px;
+        height: 60px;
+        filter: blur(1px);
+      }
+    }
+
+    &__government-card-arrow {
+      font-size: 8px;
+      bottom: 4px;
+      right: 6px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .home {
+    &__leadership-grid {
+      max-width: 300px;
+      gap: 16px;
+    }
+
+    &__leadership-card {
+      padding: 16px 14px 14px;
+      border-radius: 14px;
+    }
+
+    &__leadership-card-image {
+      width: 120px;
+      height: 150px;
+      border-radius: 12px;
+    }
+
+    &__leadership-card-name {
+      font-size: 0.95rem;
+    }
+
+    &__leadership-card-position {
+      font-size: 0.7rem;
+      min-height: 30px;
+    }
+
+    &__leadership-card-badge {
+      width: 28px;
+      height: 28px;
+      font-size: 0.6rem;
+      top: -9px;
+      right: 10px;
+    }
+
+    &__leadership-detail-item {
+      gap: 8px;
+      padding: 3px 6px;
+    }
+
+    &__leadership-detail-icon-wrapper {
+      width: 22px;
+      height: 22px;
+    }
+
+    &__leadership-detail-icon {
+      font-size: 9px;
+    }
+
+    &__leadership-detail-label {
+      font-size: 0.45rem;
+    }
+
+    &__leadership-detail-value {
+      font-size: 0.6rem;
+    }
+
+    &__leadership-card-btn {
+      padding: 4px 14px;
+      font-size: 0.65rem;
+      gap: 4px;
+    }
+
+    &__leadership-title {
+      font-size: 1.2rem;
+    }
+
+    &__government-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    &__government-card {
+      min-height: 85px;
+      padding: 10px 6px;
+      border-radius: 10px;
+    }
+
+    &__government-card-icon {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+      margin-bottom: 4px;
+      
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &__government-card-name {
+      font-size: 0.55rem;
+    }
+
+    &__government-card-description {
+      display: none;
+    }
+
+    &__government-card-bg {
+      font-size: 50px;
+      
+      svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    &__government-title {
+      font-size: 1.2rem;
+    }
+
+    &__government-title-line {
+      flex: 0 0 40px;
+    }
+
     &__stats-title {
       font-size: 1.2rem;
+    }
+
+    &__stats-title-line {
+      flex: 0 0 40px;
     }
   }
 }

@@ -1,0 +1,229 @@
+{
+  "_comment": "=== HOME SAHIFASI MA'LUMOTLARI ===",
+  "_comment_hero": "=== HERO SEKSIYASI ===",
+  "hero": {
+    "badge": {
+      "icon": "FaBuilding",
+      "text": "Uychi tuman MMTB"
+    },
+    "title": {
+      "main": "Maktabgacha va maktab ta'limi",
+      "highlight": "Sifatli ta'lim - kelajak poydevori"
+    },
+    "subtitle": "Uychi tuman Maktabgacha va maktab ta'limi bo'limi rasmiy sayti. Tuman ta'lim sohasidagi eng so'nggi yangiliklar va e'lonlar.",
+    "stats": [
+      {
+        "label": "Yangiliklar",
+        "icon": "FaNewspaper",
+        "value": "newsCount"
+      },
+      {
+        "label": "Kategoriyalar",
+        "icon": "FaTag",
+        "value": "categoriesCount"
+      },
+      {
+        "label": "Rahbariyat",
+        "icon": "FaUserTie",
+        "value": "leadershipCount"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Yangiliklar",
+        "type": "primary",
+        "icon": "FaArrowRight",
+        "link": "/yangiliklar"
+      },
+      {
+        "text": "Rahbariyat",
+        "type": "secondary",
+        "icon": "",
+        "link": "/rahbariyat"
+      }
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800",
+      "alt": "Ta'lim",
+      "badge": {
+        "icon": "FaSchool",
+        "text": "15+ yil tajriba"
+      }
+    }
+  },
+
+  "_comment_slider": "=== YANGILIKLAR SLIDER ===",
+  "slider": {
+    "title": "So'nggi yangiliklar",
+    "subtitle": "Uychi tumani Maktabgacha va maktab ta'limi bo'limi yangiliklari",
+    "autoplayDelay": 4000
+  },
+
+  "_comment_leadership": "=== RAHBARIYAT SEKSIYASI ===",
+  "leadership": {
+    "title": "Rahbariyat",
+    "subtitle": "Uychi tuman Maktabgacha va maktab ta'limi bo'limi rahbariyati",
+    "button": {
+      "text": "Batafsil",
+      "icon": "FaArrowRight",
+      "link": "/rahbariyat"
+    },
+    "detailLabels": {
+      "reception": "Qabul vaqti",
+      "phone": "Telefon",
+      "email": "Email"
+    }
+  },
+
+  "_comment_government": "=== HUKUMAT SAYTLARI SEKSIYASI ===",
+  "government": {
+    "title": "Hukumat saytlari",
+    "subtitle": "O'zbekiston Respublikasining rasmiy hukumat saytlari",
+    "sites": [
+      {
+        "id": 1,
+        "name": "Prezident",
+        "description": "O'zbekiston Respublikasi Prezidenti",
+        "url": "https://president.uz",
+        "icon": "FaCrown",
+        "color": "#1a56db"
+      },
+      {
+        "id": 2,
+        "name": "Prezident Matbuot xizmati",
+        "description": "Prezident Matbuot xizmati",
+        "url": "https://president.uz/uz/press",
+        "icon": "FaRegNewspaper",
+        "color": "#2563eb"
+      },
+      {
+        "id": 3,
+        "name": "Interaktiv davlat xizmatlari",
+        "description": "my.gov.uz",
+        "url": "https://my.gov.uz",
+        "icon": "FaRegHandshake",
+        "color": "#059669"
+      },
+      {
+        "id": 4,
+        "name": "Prezident virtual qabulxonasi",
+        "description": "Virtual qabulxona",
+        "url": "https://president.uz/uz/virtual",
+        "icon": "FaRegComment",
+        "color": "#7c3aed"
+      },
+      {
+        "id": 5,
+        "name": "Hukumat portali",
+        "description": "gov.uz",
+        "url": "https://gov.uz",
+        "icon": "FaRegBuilding",
+        "color": "#047857"
+      },
+      {
+        "id": 6,
+        "name": "Oliy Majlis Senati",
+        "description": "Senat",
+        "url": "https://senat.uz",
+        "icon": "FaLandmark",
+        "color": "#b45309"
+      },
+      {
+        "id": 7,
+        "name": "Ochiq axborot portali",
+        "description": "data.gov.uz",
+        "url": "https://data.gov.uz",
+        "icon": "FaDatabase",
+        "color": "#0891b2"
+      },
+      {
+        "id": 8,
+        "name": "Qonun hujjatlari milliy bazasi",
+        "description": "lex.uz",
+        "url": "https://lex.uz",
+        "icon": "FaBalanceScale",
+        "color": "#dc2626"
+      },
+      {
+        "id": 9,
+        "name": "Milliy huquqiy internet portal",
+        "description": "huquq.uz",
+        "url": "https://huquq.uz",
+        "icon": "FaGavel",
+        "color": "#4f46e5"
+      },
+      {
+        "id": 10,
+        "name": "Maktabgacha va maktab ta'limi vazirligi",
+        "description": "uzedu.uz",
+        "url": "https://uzedu.uz",
+        "icon": "FaSchool",
+        "color": "#7c3aed"
+      },
+      {
+        "id": 11,
+        "name": "Oliy ta'lim, fan va innovatsiyalar",
+        "description": "mininnovation.uz",
+        "url": "https://mininnovation.uz",
+        "icon": "FaMicroscope",
+        "color": "#d97706"
+      },
+      {
+        "id": 12,
+        "name": "Sog'liqni saqlash vazirligi",
+        "description": "minzdrav.uz",
+        "url": "https://minzdrav.uz",
+        "icon": "FaHeart",
+        "color": "#ef4444"
+      },
+      {
+        "id": 13,
+        "name": "Statistika qo'mitasi",
+        "description": "stat.uz",
+        "url": "https://stat.uz",
+        "icon": "FaChartBar",
+        "color": "#2563eb"
+      },
+      {
+        "id": 14,
+        "name": "Ekologiya vazirligi",
+        "description": "ecogov.uz",
+        "url": "https://ecogov.uz",
+        "icon": "FaTree",
+        "color": "#16a34a"
+      }
+    ]
+  },
+
+  "_comment_stats": "=== STATISTIKA SEKSIYASI ===",
+  "stats": {
+    "title": "Raqamlarda biz",
+    "subtitle": "Uychi tuman MMTB faoliyati raqamlarda",
+    "items": [
+      {
+        "label": "Maktabgacha ta'lim",
+        "icon": "FaChild",
+        "value": 15,
+        "color": "linear-gradient(135deg, #3b82f6, #2563eb)"
+      },
+      {
+        "label": "Maktablar",
+        "icon": "FaUniversity",
+        "value": 22,
+        "color": "linear-gradient(135deg, #8b5cf6, #7c3aed)"
+      },
+      {
+        "label": "O'quvchilar",
+        "icon": "FaUsers",
+        "value": 5000,
+        "color": "linear-gradient(135deg, #10b981, #059669)"
+      },
+      {
+        "label": "Pedagoglar",
+        "icon": "FaChalkboardTeacher",
+        "value": 50,
+        "color": "linear-gradient(135deg, #f59e0b, #d97706)"
+      }
+    ]
+  }
+}

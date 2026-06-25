@@ -1,24 +1,16 @@
 // pages/Home.tsx
+import React from "react";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-  FaCalendarAlt, 
-  FaUser, 
-  FaEye, 
-  FaArrowRight,
-  FaChevronLeft,
-  FaChevronRight,
-  FaUsers,
-  FaBuilding,
-  FaTag,
-  FaSchool,
-  FaChalkboardTeacher,
-  FaChild,
-  FaUniversity,
-  FaNewspaper
-} from "react-icons/fa";
+import * as FaIcons from "react-icons/fa";
 import "./Home.scss";
 import newsData from "../data/yangiliklarData.json";
+import leadershipData from "../data/leadershipData.json";
+import homeData from "../data/homeData.json";
+
+// Rasmlarni import qilish
+import karimovAlisher from "../assets/rahbariyat/Nuriddin.jpg";
+import tursunovBotir from "../assets/rahbariyat/Botir.jpg";
 
 interface Category {
   name: string;
@@ -39,15 +31,86 @@ interface NewsItem {
   category: Category;
 }
 
+interface LeadershipMember {
+  id: number;
+  name: string;
+  position: string;
+  phone: string;
+  email: string;
+  receptionDay: string;
+  receptionTime: string;
+  image: string;
+  isVacant: boolean;
+  order: number;
+}
+
+interface GovernmentSite {
+  id: number;
+  name: string;
+  description: string;
+  url: string;
+  icon: string;
+  color: string;
+}
+
+// Iconlarni olish funksiyasi
+const getIcon = (iconName: string) => {
+  const iconMap: Record<string, any> = {
+    FaBuilding: FaIcons.FaBuilding,
+    FaNewspaper: FaIcons.FaNewspaper,
+    FaTag: FaIcons.FaTag,
+    FaUserTie: FaIcons.FaUserTie,
+    FaArrowRight: FaIcons.FaArrowRight,
+    FaSchool: FaIcons.FaSchool,
+    FaCrown: FaIcons.FaCrown,
+    FaRegNewspaper: FaIcons.FaRegNewspaper,
+    FaRegHandshake: FaIcons.FaRegHandshake,
+    FaRegComment: FaIcons.FaRegComment,
+    FaRegBuilding: FaIcons.FaRegBuilding,
+    FaLandmark: FaIcons.FaLandmark,
+    FaDatabase: FaIcons.FaDatabase,
+    FaBalanceScale: FaIcons.FaBalanceScale,
+    FaGavel: FaIcons.FaGavel,
+    FaMicroscope: FaIcons.FaMicroscope,
+    FaHeart: FaIcons.FaHeart,
+    FaChartBar: FaIcons.FaChartBar,
+    FaTree: FaIcons.FaTree,
+    FaChild: FaIcons.FaChild,
+    FaUniversity: FaIcons.FaUniversity,
+    FaUsers: FaIcons.FaUsers,
+    FaChalkboardTeacher: FaIcons.FaChalkboardTeacher,
+    FaCalendarAlt: FaIcons.FaCalendarAlt,
+    FaUser: FaIcons.FaUser,
+    FaEye: FaIcons.FaEye,
+    FaChevronLeft: FaIcons.FaChevronLeft,
+    FaChevronRight: FaIcons.FaChevronRight,
+    FaPhone: FaIcons.FaPhone,
+    FaEnvelope: FaIcons.FaEnvelope,
+    FaClock: FaIcons.FaClock,
+    FaQuoteLeft: FaIcons.FaQuoteLeft,
+    FaExternalLinkAlt: FaIcons.FaExternalLinkAlt,
+    FaGlobe: FaIcons.FaGlobe,
+    FaHandsHelping: FaIcons.FaHandsHelping,
+  };
+  const Icon = iconMap[iconName];
+  return Icon ? Icon : null;
+};
+
+// Icon komponenti
+const IconComponent = ({ name }: { name: string }) => {
+  const Icon = getIcon(name);
+  return Icon ? <Icon /> : null;
+};
+
 function Home() {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
+  const [leadershipMembers, setLeadershipMembers] = useState<LeadershipMember[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [slidesPerView, setSlidesPerView] = useState(3);
   
-  // Stats animatsiya uchun state
   const [statValues, setStatValues] = useState({
     maktabgacha: 0,
     maktablar: 0,
@@ -57,12 +120,38 @@ function Home() {
   const [isStatsVisible, setIsStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
 
+  const heroData = homeData.hero;
+  const sliderData = homeData.slider;
+  const leadershipDataConfig = homeData.leadership;
+  const governmentData = homeData.government;
+  const statsData = homeData.stats;
+
+  const getImage = (imageName: string) => {
+    const images: Record<string, string> = {
+      "karimovAlisher": karimovAlisher,
+      "tursunovBotir": tursunovBotir,
+    };
+    return images[imageName] || karimovAlisher;
+  };
+
+  const governmentSites = governmentData.sites.map((site: GovernmentSite) => ({
+    ...site,
+    icon: getIcon(site.icon)
+  }));
+
   useEffect(() => {
     setVisible(true);
     setNewsItems(newsData.newsItems);
+    
+    const activeMembers = leadershipData.leadershipMembers
+      .filter((member: LeadershipMember) => !member.isVacant)
+      .map((member: LeadershipMember) => ({
+        ...member,
+        image: getImage(member.image)
+      }));
+    setLeadershipMembers(activeMembers);
   }, []);
 
-  // Stats animatsiya uchun Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -80,19 +169,18 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Raqamlarni animatsiya qilish
   useEffect(() => {
     if (!isStatsVisible) return;
 
-    const duration = 2000; // 2 sekund
+    const duration = 2000;
     const steps = 60;
     const interval = duration / steps;
 
     const targets = {
-      maktabgacha: 15,
-      maktablar: 22,
-      oquvchilar: 5000,
-      pedagoglar: 50
+      maktabgacha: statsData.items[0].value,
+      maktablar: statsData.items[1].value,
+      oquvchilar: statsData.items[2].value,
+      pedagoglar: statsData.items[3].value
     };
 
     let currentStep = 0;
@@ -122,7 +210,6 @@ function Home() {
     return () => clearInterval(timer);
   }, [isStatsVisible]);
 
-  // Ekran o'lchamiga qarab slidesPerView ni o'zgartirish
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -168,7 +255,7 @@ function Home() {
       setCurrentSlide((prev) => 
         prev >= totalSlides - 1 ? 0 : prev + 1
       );
-    }, 4000);
+    }, sliderData.autoplayDelay || 4000);
 
     return () => clearInterval(interval);
   }, [isHovered, totalSlides, sortedNews.length, slidesPerView]);
@@ -209,67 +296,58 @@ function Home() {
         <div className="home__hero">
           <div className="home__hero-content">
             <div className="home__hero-badge">
-              <FaBuilding />
-              Uychi tuman MMTB
+              <IconComponent name={heroData.badge.icon} />
+              {heroData.badge.text}
             </div>
             <h1 className="home__hero-title">
-              <span className="home__hero-title-main">Maktabgacha va maktab ta'limi</span>
-              <span className="home__hero-highlight">Sifatli ta'lim - kelajak poydevori</span>
+              <span className="home__hero-title-main">{heroData.title.main}</span>
+              <span className="home__hero-highlight">{heroData.title.highlight}</span>
             </h1>
-            <p className="home__hero-subtitle">
-              Uychi tuman Maktabgacha va maktab ta'limi bo'limi rasmiy sayti. 
-              Tuman ta'lim sohasidagi eng so'nggi yangiliklar va e'lonlar.
-            </p>
+            <p className="home__hero-subtitle">{heroData.subtitle}</p>
             <div className="home__hero-stats">
-              <div className="home__hero-stat">
-                <span className="home__hero-stat-number">{newsItems.length}</span>
-                <span className="home__hero-stat-label">
-                  <FaNewspaper className="home__hero-stat-icon" />
-                  Yangiliklar
-                </span>
-              </div>
-              <div className="home__hero-stat home__hero-stat--divider"></div>
-              <div className="home__hero-stat">
-                <span className="home__hero-stat-number">{categories.length}</span>
-                <span className="home__hero-stat-label">
-                  <FaTag className="home__hero-stat-icon" />
-                  Kategoriyalar
-                </span>
-              </div>
-              <div className="home__hero-stat home__hero-stat--divider"></div>
-              <div className="home__hero-stat">
-                <span className="home__hero-stat-number">5000+</span>
-                <span className="home__hero-stat-label">
-                  <FaUsers className="home__hero-stat-icon" />
-                  O'quvchilar
-                </span>
-              </div>
+              {heroData.stats.map((stat: any, index: number) => (
+                <React.Fragment key={index}>
+                  <div className="home__hero-stat">
+                    <span className="home__hero-stat-number">
+                      {stat.value === "newsCount" ? newsItems.length :
+                       stat.value === "categoriesCount" ? categories.length :
+                       stat.value === "leadershipCount" ? leadershipMembers.length :
+                       stat.value}
+                    </span>
+                    <span className="home__hero-stat-label">
+                      <IconComponent name={stat.icon} />
+                      {stat.label}
+                    </span>
+                  </div>
+                  {index < heroData.stats.length - 1 && (
+                    <div className="home__hero-stat home__hero-stat--divider"></div>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
             <div className="home__hero-actions">
-              <button 
-                className="home__hero-btn home__hero-btn--primary"
-                onClick={() => navigate('/yangiliklar')}
-              >
-                Yangiliklar <FaArrowRight />
-              </button>
-              <button 
-                className="home__hero-btn home__hero-btn--secondary"
-                onClick={() => navigate('/rahbariyat')}
-              >
-                Biz haqimizda
-              </button>
+              {heroData.buttons.map((btn: any, index: number) => (
+                <button 
+                  key={index}
+                  className={`home__hero-btn home__hero-btn--${btn.type}`}
+                  onClick={() => navigate(btn.link)}
+                >
+                  {btn.text}
+                  {btn.icon && <IconComponent name={btn.icon} />}
+                </button>
+              ))}
             </div>
           </div>
           <div className="home__hero-image">
             <img 
-              src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800" 
-              alt="Ta'lim" 
+              src={heroData.image.src} 
+              alt={heroData.image.alt} 
               loading="lazy"
             />
             <div className="home__hero-image-overlay">
               <div className="home__hero-image-badge">
-                <FaSchool />
-                <span>15+ yil tajriba</span>
+                <IconComponent name={heroData.image.badge.icon} />
+                <span>{heroData.image.badge.text}</span>
               </div>
             </div>
           </div>
@@ -280,12 +358,10 @@ function Home() {
           <div className="home__slider-header">
             <div className="home__slider-title-wrapper">
               <span className="home__slider-title-line"></span>
-              <h2 className="home__slider-title" id="id_sy">So'nggi yangiliklar</h2>
+              <h2 className="home__slider-title" id="id_sy">{sliderData.title}</h2>
               <span className="home__slider-title-line"></span>
             </div>
-            <p className="home__slider-subtitle">
-              Uychi tumani Maktabgacha va maktab ta'limi bo'limi yangiliklari
-            </p>
+            <p className="home__slider-subtitle">{sliderData.subtitle}</p>
           </div>
 
           <div 
@@ -313,18 +389,18 @@ function Home() {
                           goToNews(news.id);
                         }}
                       >
-                        <FaArrowRight />
+                        <IconComponent name="FaArrowRight" />
                       </button>
                     </div>
                   </div>
                   <div className="home__slider-content">
                     <div className="home__slider-meta">
                       <span className="home__slider-date">
-                        <FaCalendarAlt />
+                        <IconComponent name="FaCalendarAlt" />
                         {formatDate(news.date)}
                       </span>
                       <span className="home__slider-views">
-                        <FaEye />
+                        <IconComponent name="FaEye" />
                         {news.views}
                       </span>
                     </div>
@@ -332,7 +408,7 @@ function Home() {
                     <p className="home__slider-excerpt">{news.excerpt}</p>
                     <div className="home__slider-footer">
                       <span className="home__slider-author">
-                        <FaUser />
+                        <IconComponent name="FaUser" />
                         {news.author}
                       </span>
                       <button 
@@ -342,7 +418,7 @@ function Home() {
                           goToNews(news.id);
                         }}
                       >
-                        Batafsil <FaArrowRight />
+                        Batafsil <IconComponent name="FaArrowRight" />
                       </button>
                     </div>
                   </div>
@@ -353,10 +429,10 @@ function Home() {
             {totalSlides > 1 && (
               <>
                 <button className="home__slider-btn-prev" onClick={prevSlide} aria-label="Oldingi">
-                  <FaChevronLeft />
+                  <IconComponent name="FaChevronLeft" />
                 </button>
                 <button className="home__slider-btn-next" onClick={nextSlide} aria-label="Keyingi">
-                  <FaChevronRight />
+                  <IconComponent name="FaChevronRight" />
                 </button>
               </>
             )}
@@ -376,63 +452,178 @@ function Home() {
           )}
         </div>
 
-        {/* Quick Stats - Animatsiyali raqamlar */}
+        {/* Rahbariyat Section */}
+        {leadershipMembers.length > 0 && (
+          <div className="home__leadership">
+            <div className="home__leadership-header">
+              <div className="home__leadership-title-wrapper">
+                <span className="home__leadership-title-line"></span>
+                <h2 className="home__leadership-title">{leadershipDataConfig.title}</h2>
+                <span className="home__leadership-title-line"></span>
+              </div>
+              <p className="home__leadership-subtitle">{leadershipDataConfig.subtitle}</p>
+            </div>
+
+            <div className="home__leadership-grid">
+              {leadershipMembers.map((member) => (
+                <div key={member.id} className="home__leadership-card">
+                  <div className="home__leadership-card-badge">
+                    <span>{member.order}</span>
+                  </div>
+                  
+                  <div className="home__leadership-card-image">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      loading="lazy"
+                    />
+                    <div className="home__leadership-card-image-overlay">
+                      <button 
+                        className="home__leadership-card-image-btn"
+                        onClick={() => navigate(leadershipDataConfig.button.link)}
+                      >
+                        <IconComponent name="FaUserTie" />
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="home__leadership-card-content">
+                    <h3 className="home__leadership-card-name">{member.name}</h3>
+                    <p className="home__leadership-card-position">{member.position}</p>
+                    
+                    <div className="home__leadership-card-divider"></div>
+                    
+                    <div className="home__leadership-card-details">
+                      <div className="home__leadership-detail-item">
+                        <div className="home__leadership-detail-icon-wrapper">
+                          <IconComponent name="FaClock" />
+                        </div>
+                        <div className="home__leadership-detail-text">
+                          <span className="home__leadership-detail-label">
+                            {leadershipDataConfig.detailLabels.reception}
+                          </span>
+                          <span className="home__leadership-detail-value">
+                            <strong>{member.receptionDay}</strong> {member.receptionTime}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="home__leadership-detail-item">
+                        <div className="home__leadership-detail-icon-wrapper">
+                          <IconComponent name="FaPhone" />
+                        </div>
+                        <div className="home__leadership-detail-text">
+                          <span className="home__leadership-detail-label">
+                            {leadershipDataConfig.detailLabels.phone}
+                          </span>
+                          <a href={`tel:${member.phone}`} className="home__leadership-detail-value">
+                            {member.phone}
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div className="home__leadership-detail-item">
+                        <div className="home__leadership-detail-icon-wrapper">
+                          <IconComponent name="FaEnvelope" />
+                        </div>
+                        <div className="home__leadership-detail-text">
+                          <span className="home__leadership-detail-label">
+                            {leadershipDataConfig.detailLabels.email}
+                          </span>
+                          <a href={`mailto:${member.email}`} className="home__leadership-detail-value">
+                            {member.email}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <button 
+                      className="home__leadership-card-btn"
+                      onClick={() => navigate(leadershipDataConfig.button.link)}
+                    >
+                      {leadershipDataConfig.button.text} <IconComponent name={leadershipDataConfig.button.icon} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Hukumat Saytlari Section */}
+        <div className="home__government">
+          <div className="home__government-header">
+            <div className="home__government-title-wrapper">
+              <span className="home__government-title-line"></span>
+              <h2 className="home__government-title">{governmentData.title}</h2>
+              <span className="home__government-title-line"></span>
+            </div>
+            <p className="home__government-subtitle">{governmentData.subtitle}</p>
+          </div>
+
+          <div className="home__government-grid">
+            {governmentSites.map((site: any) => (
+              <a
+                key={site.id}
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="home__government-card"
+                style={{ 
+                  background: `linear-gradient(135deg, ${site.color}12, ${site.color}05)`,
+                  borderColor: `${site.color}25`
+                }}
+              >
+                <div className="home__government-card-bg" style={{ color: `${site.color}12` }}>
+                  {site.icon ? <site.icon /> : null}
+                </div>
+                
+                <div className="home__government-card-content">
+                  <div className="home__government-card-icon" style={{ color: site.color, backgroundColor: `${site.color}15` }}>
+                    {site.icon ? <site.icon /> : null}
+                  </div>
+                  <h3 className="home__government-card-name">{site.name}</h3>
+                  <p className="home__government-card-description">{site.description}</p>
+                  <div className="home__government-card-arrow" style={{ color: site.color }}>
+                    <IconComponent name="FaExternalLinkAlt" />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Stats */}
         <div className="home__stats" ref={statsRef}>
           <div className="home__stats-header">
-            <h2 className="home__stats-title">
+            <div className="home__stats-title-wrapper">
               <span className="home__stats-title-line"></span>
-              <span>Raqamlarda biz</span>
+              <h2 className="home__stats-title">{statsData.title}</h2>
               <span className="home__stats-title-line"></span>
-            </h2>
-            <p className="home__stats-subtitle">
-              Uychi tuman MMTB faoliyati raqamlarda
-            </p>
+            </div>
+            <p className="home__stats-subtitle">{statsData.subtitle}</p>
           </div>
           <div className="home__stats-grid">
-            <div className="home__stat-card">
-              <div className="home__stat-icon" style={{ background: "linear-gradient(135deg, #3b82f6, #2563eb)" }}>
-                <FaChild />
+            {statsData.items.map((item: any, index: number) => (
+              <div key={index} className="home__stat-card">
+                <div className="home__stat-icon" style={{ background: item.color }}>
+                  <IconComponent name={item.icon} />
+                </div>
+                <div className="home__stat-info">
+                  <h3 className="home__stat-number">
+                    <span className="stat-animate">
+                      {formatNumber(
+                        index === 0 ? statValues.maktabgacha :
+                        index === 1 ? statValues.maktablar :
+                        index === 2 ? statValues.oquvchilar :
+                        statValues.pedagoglar
+                      )}
+                    </span>
+                  </h3>
+                  <p className="home__stat-label">{item.label}</p>
+                </div>
               </div>
-              <div className="home__stat-info">
-                <h3 className="home__stat-number">
-                  <span className="stat-animate">{formatNumber(statValues.maktabgacha)}</span>
-                </h3>
-                <p className="home__stat-label">Maktabgacha ta'lim</p>
-              </div>
-            </div>
-            <div className="home__stat-card">
-              <div className="home__stat-icon" style={{ background: "linear-gradient(135deg, #8b5cf6, #7c3aed)" }}>
-                <FaUniversity />
-              </div>
-              <div className="home__stat-info">
-                <h3 className="home__stat-number">
-                  <span className="stat-animate">{formatNumber(statValues.maktablar)}</span>
-                </h3>
-                <p className="home__stat-label">Maktablar</p>
-              </div>
-            </div>
-            <div className="home__stat-card">
-              <div className="home__stat-icon" style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}>
-                <FaUsers />
-              </div>
-              <div className="home__stat-info">
-                <h3 className="home__stat-number">
-                  <span className="stat-animate">{formatNumber(statValues.oquvchilar)}</span>
-                </h3>
-                <p className="home__stat-label">O'quvchilar</p>
-              </div>
-            </div>
-            <div className="home__stat-card">
-              <div className="home__stat-icon" style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}>
-                <FaChalkboardTeacher />
-              </div>
-              <div className="home__stat-info">
-                <h3 className="home__stat-number">
-                  <span className="stat-animate">{formatNumber(statValues.pedagoglar)}</span>
-                </h3>
-                <p className="home__stat-label">Pedagoglar</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
