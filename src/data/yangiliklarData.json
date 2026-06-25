@@ -9,7 +9,12 @@
       "date": "2024-09-01",
       "author": "Maktab ma'muriyati",
       "views": 1250,
-      "tags": ["o'quv yili", "tayyorgarlik", "yangilik"]
+      "tags": ["o'quv yili", "tayyorgarlik", "yangilik"],
+      "category": {
+        "name": "o'quv yili",
+        "label": "O'quv yili",
+        "icon": "📚"
+      }
     },
     {
       "id": 2,
@@ -20,7 +25,12 @@
       "date": "2024-08-15",
       "author": "O'quv bo'limi",
       "views": 2300,
-      "tags": ["olimpiada", "matematika", "yutuq"]
+      "tags": ["olimpiada", "matematika", "yutuq"],
+      "category": {
+        "name": "olimpiada",
+        "label": "Olimpiada",
+        "icon": "🏆"
+      }
     },
     {
       "id": 3,
@@ -31,7 +41,12 @@
       "date": "2024-07-20",
       "author": "IT bo'limi",
       "views": 980,
-      "tags": ["onlayn", "platforma", "texnologiya"]
+      "tags": ["onlayn", "platforma", "texnologiya"],
+      "category": {
+        "name": "texnologiya",
+        "label": "Texnologiya",
+        "icon": "💻"
+      }
     },
     {
       "id": 4,
@@ -42,7 +57,12 @@
       "date": "2024-07-10",
       "author": "Sport bo'limi",
       "views": 850,
-      "tags": ["sport", "futbol", "stadion"]
+      "tags": ["sport", "futbol", "stadion"],
+      "category": {
+        "name": "sport",
+        "label": "Sport",
+        "icon": "⚽"
+      }
     },
     {
       "id": 5,
@@ -53,7 +73,12 @@
       "date": "2024-06-25",
       "author": "O'quv bo'limi",
       "views": 670,
-      "tags": ["tanlov", "o'qituvchilar", "pedagog"]
+      "tags": ["tanlov", "o'qituvchilar", "pedagog"],
+      "category": {
+        "name": "pedagog",
+        "label": "Pedagog",
+        "icon": "👨‍🏫"
+      }
     },
     {
       "id": 6,
@@ -64,7 +89,12 @@
       "date": "2024-06-15",
       "author": "Maktab ma'muriyati",
       "views": 540,
-      "tags": ["laboratoriya", "kimyo", "biologiya"]
+      "tags": ["laboratoriya", "kimyo", "biologiya"],
+      "category": {
+        "name": "laboratoriya",
+        "label": "Laboratoriya",
+        "icon": "🔬"
+      }
     },
     {
       "id": 7,
@@ -75,7 +105,12 @@
       "date": "2024-03-21",
       "author": "Tadbirlar bo'limi",
       "views": 890,
-      "tags": ["navro'z", "bayram", "tadbir"]
+      "tags": ["navro'z", "bayram", "tadbir"],
+      "category": {
+        "name": "bayram",
+        "label": "Bayram",
+        "icon": "🎉"
+      }
     },
     {
       "id": 8,
@@ -86,7 +121,12 @@
       "date": "2024-02-15",
       "author": "IT bo'limi",
       "views": 620,
-      "tags": ["robototexnika", "texnologiya", "to'garak"]
+      "tags": ["robototexnika", "texnologiya", "to'garak"],
+      "category": {
+        "name": "robototexnika",
+        "label": "Robototexnika",
+        "icon": "🤖"
+      }
     },
     {
       "id": 9,
@@ -97,7 +137,12 @@
       "date": "2024-05-10",
       "author": "Kutubxona mudiri",
       "views": 430,
-      "tags": ["kutubxona", "kitoblar", "adabiyot"]
+      "tags": ["kutubxona", "kitoblar", "adabiyot"],
+      "category": {
+        "name": "kutubxona",
+        "label": "Kutubxona",
+        "icon": "📖"
+      }
     },
     {
       "id": 10,
@@ -108,7 +153,12 @@
       "date": "2024-05-20",
       "author": "Psixologik xizmat",
       "views": 720,
-      "tags": ["kasb", "trening", "bitiruvchilar"]
+      "tags": ["kasb", "trening", "bitiruvchilar"],
+      "category": {
+        "name": "kasb",
+        "label": "Kasb tanlash",
+        "icon": "💼"
+      }
     },
     {
       "id": 11,
@@ -119,7 +169,12 @@
       "date": "2024-04-10",
       "author": "Maktab ma'muriyati",
       "views": 380,
-      "tags": ["oshxona", "ovqat", "qulaylik"]
+      "tags": ["oshxona", "ovqat", "qulaylik"],
+      "category": {
+        "name": "o'quv yili",
+        "label": "O'quv yili",
+        "icon": "📚"
+      }
     },
     {
       "id": 12,
@@ -130,7 +185,12 @@
       "date": "2024-03-10",
       "author": "Ekologiya bo'limi",
       "views": 450,
-      "tags": ["ekologiya", "daraxt", "loyiha"]
+      "tags": ["ekologiya", "daraxt", "loyiha"],
+      "category": {
+        "name": "ekologiya",
+        "label": "Ekologiya",
+        "icon": "🌿"
+      }
     }
   ]
 }
